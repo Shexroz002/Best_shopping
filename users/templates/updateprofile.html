@@ -1,0 +1,63 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="{% static 'image/favicon.png' %}" type="image/png" />
+  <title>Update Profile</title>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/updateprofile.css' %}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<img class="wave" src="{% static 'image/wave.png' %}">
+	<div class="container">
+		<div class="img">
+			<img src="{% static 'image/bg.svg' %}">
+		</div>
+		<div class="login-content">
+			<div class="fam" style="width: 360px;">
+				<img id="avatar" src="{% static 'image/avatar.svg' %}">
+				<h2 class="title">Edite Profile</i>
+				</h2>
+				<span id="usernameeror"></span>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Username</h5>
+           		   		<input id="username" type="text" class="input">
+           		   </div>
+           		</div>
+				 <span></span>
+				 <div class="input-div one">
+           		   <div class="i">
+					<i class="bi bi-image-fill"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<input id="image" type="file" class="input">
+           		   </div>
+           		</div>
+				   <span id="emaileror" style="font-size: 0.5rem; color:red;"></span>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+					<i class="bi bi-envelope-fill"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Email</h5>
+           		    	<input id="email" type="email" class="input">
+            	   </div>
+            	</div>
+            	<a href="#">Forgot Password?</a>
+            	<button class="btn" >Update Profile</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'js/updateprofile.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/updateprofils.js' %}"></script>
+</body>
+</html>

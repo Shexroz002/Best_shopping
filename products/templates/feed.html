@@ -1,0 +1,601 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+   <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- Favicon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.js"></script>
+  <link rel="shortcut icon" href="{% static 'image/favicon.png' %}" type="image/png" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+ <!-- ======== Swiper Js ======= -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.css"
+    />
+
+  <!-- Boxicons -->
+  <link href='https://unpkg.com/boxicons@2.0.8/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="{% static 'css/feed.css' %}" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>Nature Ecommerce Website</title>
+</head>
+
+<body>
+  <div id="notification-area" style="z-index: 9999999;"></div>
+
+  <div id="speechbtn2">
+    
+      <p id="speechtext" class="golos text" style="position: relative;left:3%;color: rgb(43, 42, 40);"></p>
+      <img id="speechbtn" src="{% static 'image/speach.png'%}" alt="sad" >
+    </div>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="wrapper container">
+      <div class="logo"><a href="">
+        <img src="{% static 'image/logo.png' %}" alt="">
+      </a>
+      </div>
+      <ul class="nav-list">
+        <div class="top">
+          <label for="" class="btn close-btn"><i class="fas fa-times"></i></label>
+        </div>
+        <li><a href="{% url 'products:feed' %}">Home</a></li>
+        <li><a href="{% url 'products:allproduct' %}">Products</a></li>
+        <li>
+          <a href="" class="desktop-item">Shop</i></span></a>
+          <!-- <input type="checkbox" id="showMega" /> -->
+          <label for="showMega" class="mobile-item">Shop </label>
+          <!-- <div class="mega-box">
+            <div class="content">
+              <div class="row">
+                <img src="./image/nav.png" alt="" />
+              </div>
+              <div class="row">
+                <header>Shop Layout</header>
+                <ul class="mega-links">
+                  <li><a href="#">Shop With Background</a></li>
+                  <li><a href="#">Shop Mini Categories</a></li>
+                  <li><a href="#">Shop Only Categories</a></li>
+                  <li><a href="#">Shop Icon Categories</a></li>
+                </ul>
+              </div>
+              <div class="row">
+                <header>Filter Layout</header>
+                <ul class="mega-links">
+                  <li><a href="#">Sidebar</a></li>
+                  <li><a href="#">Filter Default</a></li>
+                  <li><a href="#">Filter Drawer</a></li>
+                  <li><a href="#">Filter Dropdown</a></li>
+                </ul>
+              </div>
+              <div class="row">
+                <header>Product Layout</header>
+                <ul class="mega-links">
+                  <li><a href="#">Layout Zoom</a></li>
+                  <li><a href="#">Layout Sticky</a></li>
+                  <li><a href="#">Layout Sticky 2</a></li>
+                  <li><a href="#">Layout Scroll</a></li>
+                </ul>
+              </div>
+            </div>
+          </div> -->
+        </li>
+        <li><a href="">Blog</a></li>
+        <li>
+          <a href="" class="desktop-item">Vendors <span><i class="fas fa-chevron-down"></i></span></a>
+          <input type="checkbox" id="showdrop1" />
+          <label for="showdrop1" class="mobile-item">Vendors <span><i class="fas fa-chevron-down"></i></span></label>
+          <ul class="drop-menu1">
+            <li><a href="">Vendor Store listings</a></li>
+            <li><a href="">Store Details</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a class="desktop-item">{% if user.is_authenticated %}
+            <span><img style="width: 30px;" src="{% static 'image/user.png' %}" alt="" /></span>
+            {% else%}
+            <span id="logintrue"><img style="width: 30px;" src="{% static 'image/search.png' %}" alt="" /></span>
+            {% endif%} <span><i class="fas fa-chevron-down"></i></span></a>
+          <input type="checkbox" id="showdrop2" />
+          <label for="showdrop2" class="mobile-item">{% if user.is_authenticated %}
+            <span><img style="width: 30px;" src="{% static 'image/user.png' %}" alt="" /></span>
+            {% else%}
+            <span id="logintrue"><img style="width: 30px;" src="{% static 'image/search.png' %}" alt="" /></span>
+            {% endif%} <span><i class="fas fa-chevron-down"></i></span></label>
+          <ul class="drop-menu2">
+            <li><a href="{% url 'users:logout' %}">Profile</a></li>
+            <li><a href="">Shopping History</a></li>
+            <li><a href="">Update Profile</a></li>
+            <li><a href="">Logout</a></li>
+          </ul>
+        </li>
+        <!-- icons -->
+        <li class="icons">
+          <a href="{% url 'products:cart' %}">
+            <span>
+            <img  src="{% static 'image/shoppingBag.svg' %}" alt="" />
+            <small class="count d-flex" id="productcount">0</small>
+          </span>
+          </a>
+          <span><a href="{% url 'products:allproduct' %}"><img src="{% static 'image/search.svg' %}" alt="" /></a></span>
+          
+        </li>
+      </ul>
+      <label for="" class="btn open-btn"><i class="fas fa-bars"></i></label>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="row">
+      <div class="swiper-container slider-1">
+         <div class="swiper-wrapper">
+         <div class="swiper-slide">
+            <img src="{% static 'image/hero-1.png' %}" alt="" />
+            <div class="content">
+              <h1>Super market vegbox
+                <br/>
+                start from 
+                <span>$9</span>
+              </h1>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti ad natus facilis magni corporis alias.</p>
+
+              <a href="#">Shop Now</a>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <img src="{% static 'image/hero-2.png' %}" alt="hero image" />
+            <div class="content">
+              <h1>You first Order
+                <br/>
+                <span>20% off</span>
+                at Juice
+              </h1>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti ad natus facilis magni corporis alias.</p>
+              <a href="#">Shop Now</a>
+            </div>
+          </div>
+          
+          <div class="swiper-slide">
+            <img src="{% static 'image/hero-3.png' %}" alt="hero image" />
+            <div class="content">
+              <h1>You first Order
+                <br/>
+                <span>20% off</span>
+                at Juice
+              </h1>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti ad natus facilis magni corporis alias.</p>
+              <a href="#">Shop Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Navigation -->
+    <div class="arrows d-flex">
+        <div class="swiper-prev d-flex">
+          <i class="bx bx-chevrons-left swiper-icon"></i>
+        </div>
+        <div class="swiper-next d-flex">
+          <i class="bx bx-chevrons-right swiper-icon"></i>
+        </div>
+    </div>
+  </div>
+
+  <!-- Promotion -->
+
+  <section class="section promotion">
+    <div class="title">
+      <h2>Shop Collections</h2>
+      <span>Select from the premium product and save plenty money</span>
+    </div>
+
+    <div class="promotion-layout container">
+      <div class="promotion-item">
+        <img src="{% static 'image/promo1.jpg' %}" alt="" />
+        <div class="promotion-content">
+          <h3>JUICE</h3>
+          <a href="">SHOP NOW</a>
+        </div>
+      </div>
+
+      <div class="promotion-item">
+        <img src="{% static 'image/promo2.jpg' %}" alt="" />
+        <div class="promotion-content">
+          <h3>MANGO</h3>
+          <a href="">SHOP NOW</a>
+        </div>
+      </div>
+
+      <div class="promotion-item">
+        <img src="{% static 'image/promo3.jpg' %}" alt="" />
+        <div class="promotion-content">
+          <h3>GRAPES</h3>
+          <a href="">SHOP NOW</a>
+        </div>
+      </div>
+
+      <div class="promotion-item">
+        <img src="{% static 'image/promo4.jpg' %}" alt="" />
+        <div class="promotion-content">
+          <h3>POTATOE</h3>
+          <a href="">SHOP NOW</a>
+        </div>
+      </div>
+
+      <div class="promotion-item">
+        <img src="{% static 'image/promo5.jpg' %}" alt="" />
+        <div class="promotion-content">
+          <h3>ORANGE</h3>
+          <a href="">SHOP NOW</a>
+        </div>
+      </div>
+
+      <div class="promotion-item">
+        <img src="{% static 'image/promo6.jpg' %}" alt="" />
+        <div class="promotion-content">
+          <h3>PINEAPPLE</h3>
+          <a href="">SHOP NOW</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- fruit -->
+  <section class="section featured">
+    <div class="title">
+      <h2>Fruit Products</h2>
+      <span>Select from the premium product brands and save plenty money</span>
+    </div>
+
+    <div class="row container">
+      <div class="swiper-container slider-2">
+        <div id="fruit"  class="swiper-wrapper" >
+          
+        </div>
+      </div>
+    </div>
+
+     <!-- Carousel Navigation -->
+    <div class="arrows d-flex">
+       <div class="custom-next d-flex">
+          <i class="bx bx-chevrons-right swiper-icon"></i>
+        </div>
+        <div class="custom-prev d-flex">
+          <i class="bx bx-chevrons-left swiper-icon"></i>
+        </div>
+    </div>
+  </section>
+
+
+
+<!-- vagtable -->
+<section class="section featured">
+  <div class="title">
+    <h2>Vagtable Products</h2>
+    <span>Select from the premium product brands and save plenty money</span>
+  </div>
+
+  <div class="row container">
+    <div class="swiper-container slider-2">
+      <div id="vagtable" class="swiper-wrapper" >
+        
+      </div>
+    </div>
+  </div>
+
+   <!-- Carousel Navigation -->
+  <div class="arrows d-flex">
+     <div class="custom-next d-flex">
+        <i class="bx bx-chevrons-right swiper-icon"></i>
+      </div>
+      <div class="custom-prev d-flex">
+        <i class="bx bx-chevrons-left swiper-icon"></i>
+      </div>
+  </div>
+</section>
+
+<!-- Pizza -->
+<section class="section featured">
+  <div class="title">
+    <h2>Pizza Products</h2>
+    <span>Select from the premium product brands and save plenty money</span>
+  </div>
+
+  <div class="row container">
+    <div class="swiper-container slider-2">
+      <div id="Pizza" class="swiper-wrapper" >
+        
+      </div>
+    </div>
+  </div>
+
+   <!-- Carousel Navigation -->
+  <div class="arrows d-flex">
+     <div class="custom-next d-flex">
+        <i class="bx bx-chevrons-right swiper-icon"></i>
+      </div>
+      <div class="custom-prev d-flex">
+        <i class="bx bx-chevrons-left swiper-icon"></i>
+      </div>
+  </div>
+</section>
+
+
+<!-- Food -->
+<section class="section featured">
+  <div class="title">
+    <h2>Pizza Products</h2>
+    <span>Select from the premium product brands and save plenty money</span>
+  </div>
+
+  <div class="row container">
+    <div class="swiper-container slider-2">
+      <div id="Food" class="swiper-wrapper" >
+        
+      </div>
+    </div>
+  </div>
+
+   <!-- Carousel Navigation -->
+  <div class="arrows d-flex">
+     <div class="custom-next d-flex">
+        <i class="bx bx-chevrons-right swiper-icon"></i>
+      </div>
+      <div class="custom-prev d-flex">
+        <i class="bx bx-chevrons-left swiper-icon"></i>
+      </div>
+  </div>
+</section>
+
+<!-- Fish -->
+<section class="section featured">
+  <div class="title">
+    <h2>Fish Products</h2>
+    <span>Select from the premium product brands and save plenty money</span>
+  </div>
+
+  <div class="row container">
+    <div class="swiper-container slider-2">
+      <div id="fish" class="swiper-wrapper" >
+        
+      </div>
+    </div>
+  </div>
+
+   <!-- Carousel Navigation -->
+  <div class="arrows d-flex">
+     <div class="custom-next d-flex">
+        <i class="bx bx-chevrons-right swiper-icon"></i>
+      </div>
+      <div class="custom-prev d-flex">
+        <i class="bx bx-chevrons-left swiper-icon"></i>
+      </div>
+  </div>
+</section>
+
+<!-- Pilav -->
+<section class="section featured">
+  <div class="title">
+    <h2>Pilav Products</h2>
+    <span>Select from the premium product brands and save plenty money</span>
+  </div>
+
+  <div class="row container">
+    <div class="swiper-container slider-2">
+      <div id="pilav" class="swiper-wrapper" >
+        
+      </div>
+    </div>
+  </div>
+
+   <!-- Carousel Navigation -->
+  <div class="arrows d-flex">
+     <div class="custom-next d-flex">
+        <i class="bx bx-chevrons-right swiper-icon"></i>
+      </div>
+      <div class="custom-prev d-flex">
+        <i class="bx bx-chevrons-left swiper-icon"></i>
+      </div>
+  </div>
+</section>
+<!-- Ice Cream Products -->
+<section class="section featured">
+  <div class="title">
+    <h2>Ice Cream Products</h2>
+    <span>Select from the premium product brands and save plenty money</span>
+  </div>
+
+  <div class="row container">
+    <div class="swiper-container slider-2">
+      <div id="cream" class="swiper-wrapper" >
+        
+      </div>
+    </div>
+  </div>
+
+   <!-- Carousel Navigation -->
+  <div class="arrows d-flex">
+     <div class="custom-next d-flex">
+        <i class="bx bx-chevrons-right swiper-icon"></i>
+      </div>
+      <div class="custom-prev d-flex">
+        <i class="bx bx-chevrons-left swiper-icon"></i>
+      </div>
+  </div>
+</section>
+
+<!-- Drink Products -->
+<section class="section featured">
+  <div class="title">
+    <h2>Drink Products</h2>
+    <span>Select from the premium product brands and save plenty money</span>
+  </div>
+
+  <div class="row container">
+    <div class="swiper-container slider-2">
+      <div id="drink" class="swiper-wrapper" >
+        
+      </div>
+    </div>
+  </div>
+
+   <!-- Carousel Navigation -->
+  <div class="arrows d-flex">
+     <div class="custom-next d-flex">
+        <i class="bx bx-chevrons-right swiper-icon"></i>
+      </div>
+      <div class="custom-prev d-flex">
+        <i class="bx bx-chevrons-left swiper-icon"></i>
+      </div>
+  </div>
+</section>
+  <!-- Products -->
+  <!-- <section class="section products">
+    <div class="title">
+      <h2>New Products</h2>
+      <span>Select from the premium product brands and save plenty money</span>
+    </div>
+
+    <div class="product-layout">
+    </div>
+  </section> -->
+
+  <!-- ADVERT -->
+  <section class="section advert">
+    <div class="advert-layout container">
+      <div class="item ">
+        <img src="{% static 'image/banner1.jpg' %}" alt="">
+        <div class="content left">
+          <span>Exclusive Sales</span>
+          <h3>Spring Collections</h3>
+          <a href="">View Collection</a>
+        </div>
+      </div>
+      <div class="item">
+        <img src="{% static 'image/banner2.jpg' %}" alt="">
+        <div class="content  right">
+          <span>New Trending</span>
+          <h3>Designer Bags</h3>
+          <a href="">Shop Now </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="section brands">
+    <div class="title">
+      <h2>Shop by Brand</h2>
+      <span>Select from the premium product brands and save plenty money</span>
+    </div>
+
+    <div class="brand-layout container">
+      <div class="swiper-container slider-3">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="{% static 'image/brand1.png' %}" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="{% static 'image/brand2.png' %}" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="{% static 'image/brand3.png' %}" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="{% static 'image/brand4.png' %}" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="{% static 'image/brand5.png' %}" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="{% static 'image/brand6.png' %}" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img src="{% static 'image/brand7.png' %}" alt="">
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="section footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-center">
+          <h3>EXTRAS</h3>
+          <a href="#">Brands</a>
+          <a href="#">Gift Certificates</a>
+          <a href="#">Affiliate</a>
+          <a href="#">Specials</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-center">
+          <h3>INFORMATION</h3>
+          <a href="#">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-center">
+          <h3>MY ACCOUNT</h3>
+          <a href="#">My Account</a>
+          <a href="#">Order History</a>
+          <a href="#">Wish List</a>
+          <a href="#">Newsletter</a>
+          <a href="#">Returns</a>
+        </div>
+        <div class="footer-center">
+          <h3>CONTACT US</h3>
+          <div>
+            <span>
+              <i class="fas fa-map-marker-alt"></i>
+            </span>
+            42 Dream House, Dreammy street, 7131 Dreamville, USA
+          </div>
+          <div>
+            <span>
+              <i class="far fa-envelope"></i>
+            </span>
+            company@gmail.com
+          </div>
+          <div>
+            <span>
+              <i class="fas fa-phone"></i>
+            </span>
+            456-456-4512
+          </div>
+          <div class="payment-methods">
+            <img src="{% static 'image/payment.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <!-- ======== SwiperJS ======= -->
+  <!-- Custom Scripts -->
+  <script src="{% static 'js/feed.js' %}"></script>
+  <script src="{% static 'js/slider.js' %}"></script>
+  <script src="{% static 'js/product.js' %}"></script>
+  <script src="{% static 'js/productType.js' %}"></script>
+
+</body>
+
+</html>
+

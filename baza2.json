@@ -1,0 +1,434 @@
+[
+{
+  "model": "products.products",
+  "pk": 1,
+  "fields": {
+    "product_name": "Tomatoes",
+    "product_price": 2.0,
+    "product_image": "product_image/product-9.jpg",
+    "product_skidka_price": 1.5,
+    "product_type": "Vegetable",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 2,
+  "fields": {
+    "product_name": "Potato",
+    "product_price": 3.0,
+    "product_image": "product_image/product-7.jpg",
+    "product_skidka_price": 2.5,
+    "product_type": "Vegetable",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 3,
+  "fields": {
+    "product_name": "Mushroom",
+    "product_price": 4.5,
+    "product_image": "product_image/product-5.jpg",
+    "product_skidka_price": 4.0,
+    "product_type": "Vegetable",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 4,
+  "fields": {
+    "product_name": "Peach",
+    "product_price": 3.5,
+    "product_image": "product_image/product-1.jpg",
+    "product_skidka_price": 3.0,
+    "product_type": "Fruit",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 5,
+  "fields": {
+    "product_name": "Cauliflower",
+    "product_price": 5.5,
+    "product_image": "product_image/product-2.jpg",
+    "product_skidka_price": 4.0,
+    "product_type": "Vegetable",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 6,
+  "fields": {
+    "product_name": "Kiwi",
+    "product_price": 6.99,
+    "product_image": "product_image/product-3.jpg",
+    "product_skidka_price": 5.99,
+    "product_type": "Fruit",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 7,
+  "fields": {
+    "product_name": "Cucember",
+    "product_price": 2.99,
+    "product_image": "product_image/product-4.jpg",
+    "product_skidka_price": 1.99,
+    "product_type": "Vegetable",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 8,
+  "fields": {
+    "product_name": "Melon",
+    "product_price": 5.99,
+    "product_image": "product_image/product-6.jpg",
+    "product_skidka_price": 4.99,
+    "product_type": "Vegetable",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 9,
+  "fields": {
+    "product_name": "Mint",
+    "product_price": 2.99,
+    "product_image": "product_image/product-8.jpg",
+    "product_skidka_price": 1.99,
+    "product_type": "Vegetable",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 10,
+  "fields": {
+    "product_name": "Cabbage",
+    "product_price": 1.99,
+    "product_image": "product_image/product-10.jpg",
+    "product_skidka_price": 0.99,
+    "product_type": "Vegetable",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 11,
+  "fields": {
+    "product_name": "Cucember new",
+    "product_price": 6.99,
+    "product_image": "product_image/product-11.jpg",
+    "product_skidka_price": 5.99,
+    "product_type": "Vegetable",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 12,
+  "fields": {
+    "product_name": "Strawberry",
+    "product_price": 7.99,
+    "product_image": "product_image/product-12.jpg",
+    "product_skidka_price": 6.99,
+    "product_type": "Fruit",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 13,
+  "fields": {
+    "product_name": "watermelon",
+    "product_price": 3.99,
+    "product_image": "product_image/product-13.jpg",
+    "product_skidka_price": 2.99,
+    "product_type": "Vegetable",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 14,
+  "fields": {
+    "product_name": "Red pepper",
+    "product_price": 4.99,
+    "product_image": "product_image/product-14.jpg",
+    "product_skidka_price": 3.99,
+    "product_type": "Vegetable",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 15,
+  "fields": {
+    "product_name": "Lemon",
+    "product_price": 7.99,
+    "product_image": "product_image/promo2.jpg",
+    "product_skidka_price": 6.99,
+    "product_type": "Fruit",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 16,
+  "fields": {
+    "product_name": "Cherries",
+    "product_price": 8.99,
+    "product_image": "product_image/promo3.jpg",
+    "product_skidka_price": 7.99,
+    "product_type": "Fruit",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 17,
+  "fields": {
+    "product_name": "Appilsin",
+    "product_price": 9.99,
+    "product_image": "product_image/promo5.jpg",
+    "product_skidka_price": 8.99,
+    "product_type": "Fruit",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 18,
+  "fields": {
+    "product_name": "Pineapple",
+    "product_price": 10.99,
+    "product_image": "product_image/promo6.jpg",
+    "product_skidka_price": 9.99,
+    "product_type": "Fruit",
+    "product_description": "ths"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 19,
+  "fields": {
+    "product_name": "margarita",
+    "product_price": 20.0,
+    "product_image": "product_image/home-img-3.png",
+    "product_skidka_price": 19.0,
+    "product_type": "Pizza",
+    "product_description": "Pizza sauce, mozzarella, tomatoes, oregano."
+  }
+},
+{
+  "model": "products.products",
+  "pk": 20,
+  "fields": {
+    "product_name": "pepperoni",
+    "product_price": 21.0,
+    "product_image": "product_image/home-img-1.png",
+    "product_skidka_price": 20.0,
+    "product_type": "Pizza",
+    "product_description": "Sauce, mozzarella, pepperoni"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 21,
+  "fields": {
+    "product_name": "vegetarian",
+    "product_price": 19.0,
+    "product_image": "product_image/home-img-3_kPBawaV.png",
+    "product_skidka_price": 18.0,
+    "product_type": "Pizza",
+    "product_description": "Sauce, mozzarella, mushrooms, bell peppers, tomatoes, spinach, tomatoes, balsamic sauce."
+  }
+},
+{
+  "model": "products.products",
+  "pk": 22,
+  "fields": {
+    "product_name": "Bellissimo",
+    "product_price": 25.0,
+    "product_image": "product_image/home-img-2.png",
+    "product_skidka_price": 24.0,
+    "product_type": "Pizza",
+    "product_description": "Pizza sauce, mozzarella, pepperoni, turkey, bell pepper, mushrooms, olives, shallots, bon fillet."
+  }
+},
+{
+  "model": "products.products",
+  "pk": 23,
+  "fields": {
+    "product_name": "Alfredo",
+    "product_price": 21.0,
+    "product_image": "product_image/home-img-3_0g4qqCx.png",
+    "product_skidka_price": 20.0,
+    "product_type": "Pizza",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 24,
+  "fields": {
+    "product_name": "Doublecheeseburger pizza",
+    "product_price": 23.0,
+    "product_image": "product_image/pizza-3.jpg",
+    "product_skidka_price": 22.0,
+    "product_type": "Pizza",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 25,
+  "fields": {
+    "product_name": "jalapeno",
+    "product_price": 17.0,
+    "product_image": "product_image/pizza-9.jpg",
+    "product_skidka_price": 16.0,
+    "product_type": "Pizza",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 26,
+  "fields": {
+    "product_name": "chicken ranch",
+    "product_price": 25.0,
+    "product_image": "product_image/pizza-7.jpg",
+    "product_skidka_price": 24.0,
+    "product_type": "Pizza",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 27,
+  "fields": {
+    "product_name": "cheese chicken",
+    "product_price": 25.0,
+    "product_image": "product_image/pizza-1.jpg",
+    "product_skidka_price": 23.0,
+    "product_type": "Pizza",
+    "product_description": "This product"
+  }
+},
+{
+  "model": "products.products",
+  "pk": 28,
+  "fields": {
+    "product_name": "Beef Stroganoff",
+    "product_price": 35.0,
+    "product_image": "product_image/food-img-5.png",
+    "product_skidka_price": 34.0,
+    "product_type": "Food",
+    "product_description": "Beef Stroganoff may have hit peak popularity in America in the 1950s and 1960s, but it's been around far longer than that. The recipe originated in 17th century Russia and gets its name from Count Pavel Alexandrovich Stroganov, a diplomat from the Russian Stroganov family. The count was born in Paris so he would hire French cooks, but he would ask them to add some Russian flair to their dishes as well."
+  }
+},
+{
+  "model": "products.products",
+  "pk": 29,
+  "fields": {
+    "product_name": "Reuben",
+    "product_price": 45.0,
+    "product_image": "product_image/food-img-4.png",
+    "product_skidka_price": 44.0,
+    "product_type": "Food",
+    "product_description": "Though there's some debate about the Reuben's origins, many believe the sandwich emerged in the 1920s at the Blackstone Hotel in Omaha, Nebraska, where Bernard Schimmel was the chef. Schimmel's granddaughter told Saveur that some poker players at the hotel requested snacks during their game, so Schimmel concocted the corned beef and sauerkraut sandwich for one of the players, Reuben Kulakofsky."
+  }
+},
+{
+  "model": "products.products",
+  "pk": 30,
+  "fields": {
+    "product_name": "Sandwich",
+    "product_price": 32.0,
+    "product_image": "product_image/food-galler-img-3.jpg",
+    "product_skidka_price": 31.0,
+    "product_type": "Food",
+    "product_description": "Now you know where the \"Reuben\" comes from, but what about the concept of a sandwich itself? Well, according to PBS, the sandwich is named after 18th-century aristocrat John Montagu, the fourth Earl of Sandwich, who enjoyed eating sliced meats between two pieces of bread."
+  }
+},
+{
+  "model": "products.products",
+  "pk": 31,
+  "fields": {
+    "product_name": "Waldorf Salad",
+    "product_price": 25.0,
+    "product_image": "product_image/food-img-1.png",
+    "product_skidka_price": 24.0,
+    "product_type": "Food",
+    "product_description": "The Waldorf salad, which features apples, celery, grapes, and chopped walnuts over a bed of greens, is named after the establishment that birthed it: the Waldorf-Astoria Hotel in New York City. According to The New York Times, the dish was dreamed up by maitre-d'hotel Oscar Tschirky. When the hotel served it at a charity ball for Saint Mary's Hospital for Children in 1893, it was met with rave reviews. Today, it's still served at the Waldorf and on menus all over the country."
+  }
+},
+{
+  "model": "products.products",
+  "pk": 32,
+  "fields": {
+    "product_name": "French Fries",
+    "product_price": 10.0,
+    "product_image": "product_image/food-img-2_DCVYNAs.png",
+    "product_skidka_price": 9.0,
+    "product_type": "Food",
+    "product_description": "Though some claim French fries have French origins, National Geographic says the first French fries came from Belgium, where fishermen near the River Meuse began frying potatoes during the long winter months when there wasn't enough fish to fry."
+  }
+},
+{
+  "model": "products.products",
+  "pk": 33,
+  "fields": {
+    "product_name": "Salisbury Steak",
+    "product_price": 60.0,
+    "product_image": "product_image/blog-img-3.jpg",
+    "product_skidka_price": 59.0,
+    "product_type": "Food",
+    "product_description": "The Salisbury steak got its name from Dr. James Henry Salisbury, a 19th-century physician who first served it to Civil War soldiers during a study. Salisbury used the dish—which is basically ground beef shaped like a steak with potatoes and gravy—to treat chronic diarrhea among Union soldiers."
+  }
+},
+{
+  "model": "products.products",
+  "pk": 34,
+  "fields": {
+    "product_name": "Carpaccio",
+    "product_price": 42.0,
+    "product_image": "product_image/food-galler-img-1.jpg",
+    "product_skidka_price": 41.0,
+    "product_type": "Food",
+    "product_description": "Nowadays, carpaccio can be made out of raw fish, vegetables, beef, and many other types of food. But the original and truest version is made of thinly sliced or pounded pieces of raw meat."
+  }
+},
+{
+  "model": "products.products",
+  "pk": 35,
+  "fields": {
+    "product_name": "Sloppy Joe",
+    "product_price": 42.0,
+    "product_image": "product_image/food-img-2.png",
+    "product_skidka_price": 41.0,
+    "product_type": "Food",
+    "product_description": "First, a bar in Havana, Cuba, called Sloppy Joe's argues that their loose meat sandwiches were the first to break ground on the concept back in the 1920s. Ernest Hemingway frequented this establishment during the Prohibition Era and encouraged a Key West bar owner to change the name of his own spot to Sloppy Joe's Bar in reference to the original. Now, the Hemingway hot spot claims they were the ones who Americanized the sandwich."
+  }
+},
+{
+  "model": "products.products",
+  "pk": 36,
+  "fields": {
+    "product_name": "Gril",
+    "product_price": 36.0,
+    "product_image": "product_image/food-galler-img-5.jpg",
+    "product_skidka_price": 35.0,
+    "product_type": "Food",
+    "product_description": "You might think that a pound cake gets its name from its dense weight, but that's not exactly right. The name actually references the fact that a pound cake, according to PopSugar, requires one pound of each key ingredient: butter, flour, eggs, and sugar. No wonder they're so delicious."
+  }
+}
+]

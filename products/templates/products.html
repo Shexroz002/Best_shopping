@@ -1,0 +1,238 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Favicon -->
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+ <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link rel="shortcut icon" href="{% static 'image/favicon.png' %}" type="image/png" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+  
+
+  <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="{% static 'css/feed.css' %}" />
+  <title>Codevo - Ecommerce Website</title>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <div id="notification-area" style="z-index: 9999999;"></div>
+  <div id="speechbtn2">
+    
+    <p id="speechtext" class="golos text" style="position: relative;left:3%;color: rgb(43, 42, 40);"></p>
+    <img id="speechbtn" src="{% static 'image/speach.png'%}" alt="sad" >
+  </div>
+  <nav class="nav">
+    <div class="wrapper container">
+      <div class="logo"><a href="">
+        <img src="{% static 'image/logo.png' %}" alt="">
+      </a>
+      </div>
+      <ul class="nav-list">
+        <div class="top">
+          <label for="" class="btn close-btn"><i class="fas fa-times"></i></label>
+        </div>
+        <li><a href="{% url 'products:feed' %}">Home</a></li>
+        <li><a href="{% url 'products:allproduct' %}">Products</a></li>
+        <li>
+          <a href="" class="desktop-item">Shop</i></span></a>
+          <!-- <input type="checkbox" id="showMega" /> -->
+          <label for="showMega" class="mobile-item">Shop </label>
+          <!-- <div class="mega-box">
+            <div class="content">
+              <div class="row">
+                <img src="./image/nav.png" alt="" />
+              </div>
+              <div class="row">
+                <header>Shop Layout</header>
+                <ul class="mega-links">
+                  <li><a href="#">Shop With Background</a></li>
+                  <li><a href="#">Shop Mini Categories</a></li>
+                  <li><a href="#">Shop Only Categories</a></li>
+                  <li><a href="#">Shop Icon Categories</a></li>
+                </ul>
+              </div>
+              <div class="row">
+                <header>Filter Layout</header>
+                <ul class="mega-links">
+                  <li><a href="#">Sidebar</a></li>
+                  <li><a href="#">Filter Default</a></li>
+                  <li><a href="#">Filter Drawer</a></li>
+                  <li><a href="#">Filter Dropdown</a></li>
+                </ul>
+              </div>
+              <div class="row">
+                <header>Product Layout</header>
+                <ul class="mega-links">
+                  <li><a href="#">Layout Zoom</a></li>
+                  <li><a href="#">Layout Sticky</a></li>
+                  <li><a href="#">Layout Sticky 2</a></li>
+                  <li><a href="#">Layout Scroll</a></li>
+                </ul>
+              </div>
+            </div>
+          </div> -->
+        </li>
+        <li><a href="">Blog</a></li>
+        <li>
+          <a href="" class="desktop-item">Vendors <span><i class="fas fa-chevron-down"></i></span></a>
+          <input type="checkbox" id="showdrop1" />
+          <label for="showdrop1" class="mobile-item">Vendors <span><i class="fas fa-chevron-down"></i></span></label>
+          <ul class="drop-menu1">
+            <li><a href="">Vendor Store listings</a></li>
+            <li><a href="">Store Details</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="" class="desktop-item">Page <span><i class="fas fa-chevron-down"></i></span></a>
+          <input type="checkbox" id="showdrop2" />
+          <label for="showdrop2" class="mobile-item">Page <span><i class="fas fa-chevron-down"></i></span></label>
+          <ul class="drop-menu2">
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Faq</a></li>
+            <li><a href="">Page 404</a></li>
+          </ul>
+        </li>
+        <!-- icons -->
+        <li class="icons">
+          <a href="{% url 'products:cart' %}">
+            <span>
+            <img  src="{% static 'image/shoppingBag.svg' %}" alt="" />
+            <small class="count d-flex" id="productcount">0</small>
+          </span>
+          </a>
+          <span><a href="{% url 'products:allproduct' %}"><img src="{% static 'image/search.svg' %}" alt="" /></a></span>
+          {% if user.is_authenticated %}
+          <span><img style="width: 30px;" src="{% static 'image/user.png' %}" alt="" /></span>
+          {% else%}
+          <span id="logintrue"><img style="width: 30px;" src="{% static 'image/search.png' %}" alt="" /></span>
+          {% endif%}
+        </li>
+      </ul>
+      <label for="" class="btn open-btn"><i class="fas fa-bars"></i></label>
+    </div>
+  </nav>
+  <!-- PRODUCTS -->
+
+  <section class="section products">
+    
+      <div class="col-3-of-4">
+        <form action="">
+          <span style="position: relative;right: 1.5em;"><input id="searchproduct" placeholder="search product" type="search" style="border-radius: 0.5em;border: 1em,solid,white;font-size: 1.5rem;color: var(--grey2);font-family: 'Open Sans', sans-serif;"  ><img src="{% static 'image/search.svg' %}" id="searchimage" style="position: relative;right: 1.5em;top: 1px;" alt="" /></span>
+          <div class="item">
+            <label for="sort-by">Category</label>
+            <select id="category" name="sort-by" id="sort-by">
+              <option value="Fruit">Fruit</option>
+              <option value="all" selected="selected">All</option>
+              <option value="Vegetable">Vegetable</option>
+              <option value="Drink">Drink</option>
+              <option value="Fast Food">Food</option>
+              <option value="Pizza">Pizza</option>
+              <option value="Pilav">Pilav</option>
+              <option value="Ice_cream">Ice cream</option>
+              <option value="Fish">Fish</option>
+            </select>
+          </div>
+          <div class="item">
+            <label for="order-by">Sort by</label>
+            <select name="order-by" id="sort_by">
+              <option value="price">no_sort</option>
+              <option value="price">Price</option>
+              <option value="name">name</option>
+            </select>
+          </div>
+          <a style="color: white;" id="btn">Apply</a>
+        </form>
+
+        <div class="product-layout">
+
+          
+
+        </div>
+
+        <!-- PAGINATION -->
+        <ul class="pagination">
+          <span>1</span>
+          <span>2</span>
+          <span class="icon">››</span>
+          <span class="last">Last »</span>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="section footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-center">
+          <h3>EXTRAS</h3>
+          <a href="#">Brands</a>
+          <a href="#">Gift Certificates</a>
+          <a href="#">Affiliate</a>
+          <a href="#">Specials</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-center">
+          <h3>INFORMATION</h3>
+          <a href="#">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-center">
+          <h3>MY ACCOUNT</h3>
+          <a href="#">My Account</a>
+          <a href="#">Order History</a>
+          <a href="#">Wish List</a>
+          <a href="#">Newsletter</a>
+          <a href="#">Returns</a>
+        </div>
+        <div class="footer-center">
+          <h3>CONTACT US</h3>
+          <div>
+            <span>
+              <i class="fas fa-map-marker-alt"></i>
+            </span>
+            42 Dream House, Dreammy street, 7131 Dreamville, USA
+          </div>
+          <div>
+            <span>
+              <i class="far fa-envelope"></i>
+            </span>
+            company@gmail.com
+          </div>
+          <div>
+            <span>
+              <i class="fas fa-phone"></i>
+            </span>
+            456-456-4512
+          </div>
+          <div class="payment-methods">
+            <img src="{% static 'image/payment.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <!-- Custom Scripts -->
+  <script src="{% static 'js/productsortvoice.js' %}"></script>
+  <script src="{% static 'js/feed.js' %}"></script>
+  <script src="{% static 'js/productsort.js' %}"></script>
+</body>
+
+</html>
