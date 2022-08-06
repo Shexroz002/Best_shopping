@@ -97,7 +97,7 @@ class NewProduct{
         this.parent_by.append(elementnew)
     }
 }
-const logintrue = document.querySelectorAll('#logintrue');
+const logintrue = document.querySelector('.cardshop');
 const productcount = document.querySelector('#productcount');
 
 if(logintrue !== null){
@@ -111,7 +111,7 @@ if(logintrue !== null){
 axios.get(`http://127.0.0.1:8000/api/product/all`)
   .then((data) => {
     if(data.status === 200){
-      const cardshop = document.querySelectorAll('.cardshop');
+      const cardshop = document.querySelector('.cardshop');
         data.data.forEach((item)=>{
           
             new NewProduct(
@@ -142,7 +142,7 @@ btn.addEventListener('click',()=>{
         for(let i=0;i<productall.length;i++){
             productall[i].remove()
         }
-        const cardshop = document.querySelectorAll('.cardshop');
+        const cardshop = document.querySelector('.cardshop');
         let produt_name  = '',
         count = 0;
           data.data.forEach((item)=>{
@@ -178,7 +178,7 @@ const searchproduct = document.querySelector('#searchproduct'),
         for(let i=0;i<productall.length;i++){
             productall[i].remove()
         }
-        const cardshop = document.querySelectorAll('.cardshop');
+        const cardshop = document.querySelector('.cardshop');
 
           console.log(data.data)
           data.data.forEach((item)=>{
@@ -215,7 +215,12 @@ const details = document.querySelectorAll('.details');
   shopcar.forEach((item)=>{
     item.addEventListener('click',(e)=>{
       if ( e.target.id !== ''){
-        number = + e.target.id
+        number = + e.target.id;
+        const cardshop = document.querySelector('.cardshop');
+        if(cardshop === null ){
+          uttrens = new SpeechSynthesisUtterance("There is this erorr");
+          speechSynthesis.speak(uttrens)
+        }
       axios.get(`http://127.0.0.1:8000/api/cell/product/add/${number}`)
       .then((data)=>{
         const productcount2 = document.getElementsByTagName('small');

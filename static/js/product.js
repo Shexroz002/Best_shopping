@@ -176,7 +176,7 @@ class NewProduct{
 //     }
     
 //   })
-const logintrue = document.querySelectorAll('#logintrue');
+const logintrue = document.querySelector('.cardshop');
 const productcount = document.querySelector('#productcount');
 
 if(logintrue !== null){

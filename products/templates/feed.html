@@ -101,7 +101,7 @@
 
         <li>
           <a class="desktop-item">{% if user.is_authenticated %}
-            <span><img style="width: 30px;" src="{% static 'image/user.png' %}" alt="" /></span>
+            <span><img style="width: 30px;" src={{user.photo.url}} alt="" /></span>
             {% else%}
             <span id="logintrue"><img style="width: 30px;" src="{% static 'image/search.png' %}" alt="" /></span>
             {% endif%} <span><i class="fas fa-chevron-down"></i></span></a>
@@ -109,7 +109,7 @@
           <label for="showdrop2" class="mobile-item">{% if user.is_authenticated %}
             <span><img style="width: 30px;" src="{% static 'image/user.png' %}" alt="" /></span>
             {% else%}
-            <span id="logintrue"><img style="width: 30px;" src="{% static 'image/search.png' %}" alt="" /></span>
+            <span id="logintrue"><img style="width: 30px;" src="{% static 'image/search.svg' %}" alt="" /></span>
             {% endif%} <span><i class="fas fa-chevron-down"></i></span></label>
           <ul class="drop-menu2">
             <li><a href="{% url 'users:logout' %}">Profile</a></li>

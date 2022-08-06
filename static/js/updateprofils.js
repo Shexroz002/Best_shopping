@@ -4,6 +4,7 @@ const username = document.querySelector('#username'),
        avatar = document.querySelector('#avatar'),
        btn = document.querySelector('.btn'),
        inputelement = document.querySelectorAll('.input-div');
+id = parseInt(btn.id)
 
        inputelement.forEach(input =>{
         input.classList.add('focus')
@@ -24,7 +25,7 @@ function getCookie(name) {
         return cookieValue;
       }
 console.log(avatar)
-axios.get('http://127.0.0.1:8000/users/api/update/profile')
+axios.get(`http://127.0.0.1:8000/users/api/update/profile/${id}`)
 .then((data)=>{
     if(data.status === 200){
         username.value = data.data.username;
@@ -32,33 +33,75 @@ axios.get('http://127.0.0.1:8000/users/api/update/profile')
         avatar.src = data.data.photo;
     }
 })
-const images = document.querySelector('#image');
-let imagefile = '';       
-       images.addEventListener('change',(e)=>{
-        imagefile= e.target.files[0]
-        console.log(e.target.files[0])
-        console.log(imagefile)
-       })
-console.log(typeof imagefile)
+
 
 let profiledata = new FormData();
 
 
 btn.addEventListener('click',()=>{
     const usernames = document.querySelector('#username'),
-       emails = document.querySelector('#email');
-    if(imagefile !== ''){
+       emails = document.querySelector('#email'),
+       imagefile = document.querySelector('#image').files[0],
+       nameer = document.querySelector('#usernameeror'),
+       imageerr = document.querySelector('#imagerror'),
+       emaileror = document.querySelector('#emaileror');
+
+       console.log(typeof imagefile,typeof "sdas")
+    if(imagefile !== undefined){
         profiledata.append('photo',imagefile);
     }
     
     profiledata.append('username',usernames.value);
     profiledata.append('email',emails.value);
     const csrftoken = getCookie('csrftoken');
-    axios.put('http://127.0.0.1:8000/users/api/update/profile',profiledata,{headers:{
+    axios.put(`http://127.0.0.1:8000/users/api/update/profile/${id}`,profiledata,{headers:{
     'Content-Type': 'application/json',
     'X-CSRFToken': csrftoken,}
   })
   .then((data)=>{
-    console.log(data)
+    const title = document.querySelector('#title');
+    if(data.status === 201){
+        uttrens = new SpeechSynthesisUtterance("Your details have been successfully updated");
+        speechSynthesis.speak(uttrens)
+        nameer.innerHTML = '';
+        imageerr.innerHTML = '';
+        emaileror.innerHTML = '';
+        title.innerHTML = "Your details have been successfully updated";
+
+        setTimeout(()=>{
+            window.location.href = "http://127.0.0.1:8000";
+          },3000)
+    }
   })
+  .catch((error) => {
+
+    const arr = Object.keys(error.response.data.error);
+    if(arr.some((item) => item ==="username")){
+      uttrens = new SpeechSynthesisUtterance(error.response.data.error.username);
+      speechSynthesis.speak(uttrens)
+      nameer.style.color="red";
+      nameer.innerHTML = error.response.data.error.username + '<i class="bi bi-x-circle-fill" style="color: red;"></i>'
+    }else{
+      nameer.innerHTML = ''
+    };
+
+    if(arr.some((item) => item ==="photo")){
+      uttrens = new SpeechSynthesisUtterance(error.response.data.error.photo);
+      speechSynthesis.speak(uttrens)
+      imageerr.style.color="red";
+      imageerr.innerHTML = error.response.data.error.photo  + '<i class="bi bi-x-circle-fill" style="color: red;"></i>'
+    }else{
+        imageerr.innerHTML = ''
+    }
+    if(arr.some((item) => item ==="email")){
+        uttrens = new SpeechSynthesisUtterance(error.response.data.error.email);
+        speechSynthesis.speak(uttrens)
+        emaileror.style.color="red";
+        emaileror.innerHTML = error.response.data.error.email  + '<i class="bi bi-x-circle-fill" style="color: red;"></i>'
+      }else{
+        emaileror.innerHTML = ''
+      }
+  }
+
+  )
 })

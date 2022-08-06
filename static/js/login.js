@@ -9,12 +9,6 @@ const loginbtn  = document.querySelector('#loginbtn');
 sign_up_btn.addEventListener("click", () => {
   container.classList.add("sign-up-mode");
 });
-const arr= [4,5,3];
-if(arr.some((item) => item ===3)){
-  console.log('bor')
-}else{
-  console.log('yoq')
-}
 
 function getCookie(name) {
   let cookieValue = null;
@@ -75,6 +69,8 @@ axios.post('http://127.0.0.1:8000/users/api/register',JSON.stringify(data),{head
 })
     .then((data) => {
       if(data.status === 201){
+        uttrens = new SpeechSynthesisUtterance('You have successfully registered');
+        speechSynthesis.speak(uttrens)
         nameer.style.color="rgb(95, 231, 31)";
         nameer.innerHTML = 'You have successfully registered' + '<i class="bi bi-check-circle" style="color: rgb(95, 231, 31);"></i>'
         

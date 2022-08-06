@@ -13,7 +13,7 @@ from .serializers import (
      ShoppingHistorySerializer
 )
 from .models import CellProduct, Products,Bannner,CustomerPurchas,ShoppingHistory
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated,AllowAny
 from rest_framework.pagination import PageNumberPagination
 from django.core.paginator import Paginator
 import json
@@ -182,17 +182,11 @@ class CellProductAddAPIView(views.APIView):
 class CustomerPurchasRemoveProductAPIView(views.APIView):
     permission_classes = [IsAuthenticated]
     def get(self,request,id):
-        print('odtf1')
         product_remove = get_object_or_404(CellProduct,product__id = id,customer = request.user,status=False)
-        print('otdi2')
         customer_purchas = get_object_or_404(CustomerPurchas,customer = request.user,product_status=False)
-        print('odtf3')
         products = customer_purchas.product.all()
-        print('odtf4')
         if  product_remove in products:
-            print('odtf5')
             customer_purchas.product.remove(product_remove)
-            print('odtf6')
             return response.Response({"status_remove":True},status=status.HTTP_201_CREATED)
         else:
             return response.Response({"status_remove":False},status=status.HTTP_404_NOT_FOUND)
@@ -203,6 +197,7 @@ class ProductDetailAPIView(views.APIView):
         return response.Response(ProductSerializer(product).data,status=status.HTTP_200_OK)
 
 class ProductAllAPIView(views.APIView):
+    permission_classes = [AllowAny]
     def get(self,request):
         category = request.query_params.get('category')
         sorts = request.query_params.get('sortby')

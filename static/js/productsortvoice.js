@@ -42,7 +42,7 @@ speechbtn.addEventListener('click',(e)=>{
             for(let i=0;i<productall.length;i++){
                 productall[i].remove()
             }
-            const cardshop = document.querySelectorAll('.cardshop');
+            const cardshop = document.querySelector('.cardshop');
             let produt_name  = '',
             count = 0;
               
@@ -99,7 +99,7 @@ speechbtn.addEventListener('click',(e)=>{
 //         for(let i=0;i<productall.length;i++){
 //             productall[i].remove()
 //         }
-//         const cardshop = document.querySelectorAll('.cardshop');
+//         const cardshop = document.querySelector('.cardshop');
 
 //           console.log(data.data)
 //           data.data.forEach((item)=>{

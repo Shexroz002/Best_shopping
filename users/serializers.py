@@ -95,3 +95,13 @@ class ClientSerializer(serializers.ModelSerializer):
             instance.photo = validated_data.get('photo', instance.photo)
             instance.save()
             return instance
+
+class UserCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Client
+        fields = ['id', 'username', 'email', 'photo' ]
+        extra_kwargs = {
+            'username': {'required': True},
+            'email': {'required': False},
+            'photo': {'required': False}
+        }

@@ -27,8 +27,6 @@ class RegisterView(views.APIView):
     permission_classes = (permissions.AllowAny,)
 
     def post(self, request):
-        print('salom')
-        print(request.data)
         serializer = serializers.RegisterSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -39,19 +37,19 @@ class RegisterView(views.APIView):
 
 class ProfileupdateView(views.APIView):
     permission_classes = (permissions.IsAuthenticated,)
-    def get(self, request):
-        user = get_object_or_404(Client,id = request.user.id)
+    def get(self, request,pk):
+        user = get_object_or_404(Client,id = pk)
         serializer = serializers.ClientSerializer(user)
         return Response(serializer.data)
     
-    def put(self, request):
-        user = get_object_or_404(Client,id = request.user.id)
-        fields = ['username', 'photo','email']
-        serializer = serializers.ClientSerializer(instance = user, data=request.data)
+    def put(self, request,pk):
+        user = get_object_or_404(Client, pk=pk)
+        serializer = serializers.UserCreateSerializer(user, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializers.UserCreateSerializer(user).data, status=status.HTTP_201_CREATED)
+        else:
+            return Response({"error":serializer.errors},status=status.HTTP_400_BAD_REQUEST)
 
 class LoginRegisterView(View):
     def get(self,request):

@@ -21,8 +21,10 @@
 		<div class="login-content">
 			<div class="fam" style="width: 360px;">
 				<img id="avatar" src="{% static 'image/avatar.svg' %}">
-				<h2 class="title">Edite Profile</i>
+				
+				<h2 class="title">Edite Profile
 				</h2>
+				<span id="title" style="color: rgba(3, 233, 19, 0.989);"></span>
 				<span id="usernameeror"></span>
            		<div class="input-div one">
            		   <div class="i">
@@ -33,7 +35,7 @@
            		   		<input id="username" type="text" class="input">
            		   </div>
            		</div>
-				 <span></span>
+				 <span id="imagerror"></span>
 				 <div class="input-div one">
            		   <div class="i">
 					<i class="bi bi-image-fill"></i>
@@ -53,7 +55,7 @@
             	   </div>
             	</div>
             	<a href="#">Forgot Password?</a>
-            	<button class="btn" >Update Profile</button>
+            	<button class="btn" id={{user.id}}>Update Profile</button>
             </form>
         </div>
     </div>

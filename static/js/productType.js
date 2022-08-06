@@ -58,7 +58,8 @@ class ProductsType{
  axios.get('http://127.0.0.1:8000/api/product/all?category=Fruit')
  .then((data) => {
    if(data.status === 200){
-     const cardshop = document.querySelectorAll('.cardshop');
+      const cardshop = document.querySelector('.cardshop');
+       console.log(cardshop,'asdasd')
        
        data.data.forEach((item)=>{
            new ProductsType(
@@ -81,7 +82,8 @@ class ProductsType{
  axios.get('http://127.0.0.1:8000/api/product/all?category=Vegetable')
  .then((data) => {
    if(data.status === 200){
-     const cardshop = document.querySelectorAll('.cardshop');
+     const cardshop = document.querySelector('.cardshop');
+       console.log(cardshop,'asdasd')
        data.data.forEach((item)=>{
            new ProductsType(
                item.id,
@@ -104,7 +106,8 @@ class ProductsType{
  axios.get('http://127.0.0.1:8000/api/product/all?category=Pizza')
  .then((data) => {
    if(data.status === 200){
-     const cardshop = document.querySelectorAll('.cardshop');
+      const cardshop = document.querySelector('.cardshop');
+       console.log(cardshop,'asdasd')
        data.data.forEach((item)=>{
            new ProductsType(
                item.id,
@@ -128,7 +131,8 @@ class ProductsType{
  axios.get('http://127.0.0.1:8000/api/product/all?category=Food')
  .then((data) => {
    if(data.status === 200){
-     const cardshop = document.querySelectorAll('.cardshop');
+      const cardshop = document.querySelector('.cardshop');
+       console.log(cardshop,'asdasd')
        data.data.forEach((item)=>{
            new ProductsType(
                item.id,
@@ -151,7 +155,8 @@ console.log(document.querySelector('#fish'))
   axios.get('http://127.0.0.1:8000/api/product/all?category=Fish')
   .then((data) => {
     if(data.status === 200){
-      const cardshop = document.querySelectorAll('.cardshop');
+       const cardshop = document.querySelector('.cardshop');
+       console.log(cardshop,'asdasd')
         data.data.forEach((item)=>{
             new ProductsType(
                 item.id,
@@ -175,7 +180,8 @@ console.log(document.querySelector('#fish'))
   axios.get('http://127.0.0.1:8000/api/product/all?category=Pilav')
   .then((data) => {
     if(data.status === 200){
-      const cardshop = document.querySelectorAll('.cardshop');
+       const cardshop = document.querySelector('.cardshop');
+       console.log(cardshop,'asdasd')
         data.data.forEach((item)=>{
             new ProductsType(
                 item.id,
@@ -198,7 +204,8 @@ console.log(document.querySelector('#fish'))
   axios.get('http://127.0.0.1:8000/api/product/all?category=Ice_cream')
   .then((data) => {
     if(data.status === 200){
-      const cardshop = document.querySelectorAll('.cardshop');
+       const cardshop = document.querySelector('.cardshop');
+       console.log(cardshop,'asdasd')
         data.data.forEach((item)=>{
             new ProductsType(
                 item.id,
@@ -221,7 +228,8 @@ console.log(document.querySelector('#fish'))
   axios.get('http://127.0.0.1:8000/api/product/all?category=Drink')
   .then((data) => {
     if(data.status === 200){
-      const cardshop = document.querySelectorAll('.cardshop');
+       const cardshop = document.querySelector('.cardshop');
+       console.log(cardshop,'asdasd')
         data.data.forEach((item)=>{
             new ProductsType(
                 item.id,

@@ -108,7 +108,7 @@ if(logintrue !== null){
 axios.get('http://127.0.0.1:8000/api/product/detail')
   .then((data) => {
     if(data.status === 200){
-      const cardshop = document.querySelectorAll('.cardshop');
+      const cardshop = document.querySelector('.cardshop');
         let arr = [];
         data.data.forEach((item)=>{
             new NewProduct(
