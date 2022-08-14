@@ -55,7 +55,7 @@ let headers= {
 nameer.innerHTML = '';
 passworder.innerHTML = '';
 
-axios.post('http://127.0.0.1:8000/users/api/register',JSON.stringify(data),{headers:{
+axios.post('http://bestshop.pythonanywhere.com/users/api/register',JSON.stringify(data),{headers:{
   'Content-Type': 'application/json',
   'X-CSRFToken': csrftoken,}
 })
@@ -118,7 +118,7 @@ loginbtn.addEventListener('click',(e)=>{
   nameerlogin.innerHTML = '';
   passworderlogin.innerHTML = '';
   
-  axios.post('http://127.0.0.1:8000/users/api/login',JSON.stringify(data),{headers:{
+  axios.post('http://bestshop.pythonanywhere.com/users/api/login',JSON.stringify(data),{headers:{
     'Content-Type': 'application/json',
     'X-CSRFToken': csrftoken,}
   })
@@ -137,7 +137,7 @@ loginbtn.addEventListener('click',(e)=>{
           
           setTimeout(()=>{
             nameerlogin.innerHTML = ''
-            window.location.href = "http://127.0.0.1:8000";
+            window.location.href = "http://bestshop.pythonanywhere.com";
           },3000)
         }
       })

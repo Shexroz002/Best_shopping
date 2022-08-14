@@ -55,7 +55,7 @@ sendBtn.addEventListener('click',()=>{
         'Content-Type': 'application/json',
         'X-CSRFToken': csrftoken,
       };
-      axios.post(`http://127.0.0.1:8000/users/api/chat/${parseInt(chatBox.id)}`,JSON.stringify(data),{headers:{
+      axios.post(`http://bestshop.pythonanywhere.com/users/api/chat/${parseInt(chatBox.id)}`,JSON.stringify(data),{headers:{
         'Content-Type': 'application/json',
         'X-CSRFToken': csrftoken,}
       })

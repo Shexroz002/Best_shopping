@@ -44,7 +44,7 @@ class NewProduct{
         }
         return cookieValue;
       }
-axios.get('http://127.0.0.1:8000/api/purchas/product')
+axios.get('http://bestshop.pythonanywhere.com/api/purchas/product')
 .then((data)=>{
     if(data.status === 200){
         data.data.product.forEach((item)=>{
@@ -69,7 +69,7 @@ const products = document.querySelectorAll('.deletes');
 trashs.forEach((item,index)=>{
 item.addEventListener('click',(e)=>{
     let number = +e.target.id
-    axios.get(`http://127.0.0.1:8000/api/cell/product/remove/${number}`)
+    axios.get(`http://bestshop.pythonanywhere.com/api/cell/product/remove/${number}`)
     .then((data)=>{
         if(data.data.status_remove){
             products[index].remove()
@@ -128,7 +128,7 @@ busd.addEventListener('click',()=>{
         "product_id":ids,
         "product_count":values
       };
-    axios.put('http://127.0.0.1:8000/api/purchas/product',JSON.stringify(data),{headers:{
+    axios.put('http://bestshop.pythonanywhere.com/api/purchas/product',JSON.stringify(data),{headers:{
         'Content-Type': 'application/json',
         'X-CSRFToken': csrftoken,}
       })
@@ -137,7 +137,7 @@ busd.addEventListener('click',()=>{
         uttrens = new SpeechSynthesisUtterance('Your purchases have been made successfully');
         speechSynthesis.speak(uttrens)
             setTimeout(()=>{
-                window.location.href = `http://127.0.0.1:8000/shopping/history/pdf/${data.data.id}`
+                window.location.href = `http://bestshop.pythonanywhere.com/shopping/history/pdf/${data.data.id}`
             },2500)
         }
       })

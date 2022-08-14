@@ -70,7 +70,7 @@ class NewProduct{
         let alik = '';
         // <a class="cardshop" href=""><i class="fas fa-shopping-cart"></i></a>
         if(this.logintrue !== null){
-         alik = `<a class="cardshop" href="http://127.0.0.1:8000/users/login"}><i class="fas fa-shopping-cart"></i></a>`;
+         alik = `<a class="cardshop" href="http://bestshop.pythonanywhere.com/users/login"}><i class="fas fa-shopping-cart"></i></a>`;
         }else{
           alik = `<i class="fas fa-shopping-cart" id=${this.id}></i>`
         }
@@ -101,7 +101,7 @@ const cardshop = document.querySelector('#logintrue');
 const productcount = document.querySelector('#productcount');
 
 if(cardshop === null){
-  axios.get('http://127.0.0.1:8000/api/product/card/count')
+  axios.get('http://bestshop.pythonanywhere.com/api/product/card/count')
   .then((data)=>{
     if(data.status === 200){
        productcount.textContent = data.data.count
@@ -113,7 +113,7 @@ if(cardshop === null){
   productcount.textContent = 0
   console.log('yoq')
  }
-axios.get(`http://127.0.0.1:8000/api/product/all`)
+axios.get(`http://bestshop.pythonanywhere.com/api/product/all`)
   .then((data) => {
     if(data.status === 200){
       const cardshop = document.querySelector('.cardshop');
@@ -140,7 +140,7 @@ btn.addEventListener('click',()=>{
     const sort_by =document.querySelector('#sort_by');
     let category_value = category.options[category.selectedIndex].value;
     let sort_by_value = sort_by.options[sort_by.selectedIndex].value;
-    axios.get(`http://127.0.0.1:8000/api/product/all?category=${category_value}&sortby=${sort_by_value}`)
+    axios.get(`http://bestshop.pythonanywhere.com/api/product/all?category=${category_value}&sortby=${sort_by_value}`)
     .then((data) => {
       if(data.status === 200){
         productall = document.querySelectorAll('.product');
@@ -175,7 +175,7 @@ btn.addEventListener('click',()=>{
 const searchproduct = document.querySelector('#searchproduct'),
       searchbtn = document.querySelector('#searchimage');
       searchbtn.addEventListener('click',()=>{
-      axios.get(`http://127.0.0.1:8000/api/product/search?search=${searchproduct.value}`)
+      axios.get(`http://bestshop.pythonanywhere.com/api/product/search?search=${searchproduct.value}`)
     .then((data) => {
       console.log(data)
       if(data.status === 200){
@@ -213,7 +213,7 @@ const details = document.querySelectorAll('.details');
     item.addEventListener('click',(e)=>{
       if(e.target.name !==''){
         num = + e.target.name
-        window.location.href = `http://127.0.0.1:8000/product/detail/${num}`;
+        window.location.href = `http://bestshop.pythonanywhere.com/product/detail/${num}`;
       }
     })
   })
@@ -226,7 +226,7 @@ const details = document.querySelectorAll('.details');
           uttrens = new SpeechSynthesisUtterance("There is this erorr");
           speechSynthesis.speak(uttrens)
         }
-      axios.get(`http://127.0.0.1:8000/api/cell/product/add/${number}`)
+      axios.get(`http://bestshop.pythonanywhere.com/api/cell/product/add/${number}`)
       .then((data)=>{
         const productcount2 = document.getElementsByTagName('small');
         let countproduct = +productcount2[0].innerHTML

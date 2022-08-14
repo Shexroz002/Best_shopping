@@ -1,5 +1,5 @@
 
-axios.get('http://127.0.0.1:8000/api/shopping/history')
+axios.get('http://bestshop.pythonanywhere.com/api/shopping/history')
 .then((data)=>{
     console.log(data.data)
     data.data.forEach((item)=>{
@@ -51,7 +51,7 @@ axios.get('http://127.0.0.1:8000/api/shopping/history')
         <td>$${sal.total_price + 19}</td>
       </tr>
     </table>
-    <a href="http://127.0.0.1:8000/shopping/history/pdf/${sal.id}" id="${sal.id}"  class="checkout btn">Proceed To Checkout</a>
+    <a href="http://bestshop.pythonanywhere.com/shopping/history/pdf/${sal.id}" id="${sal.id}"  class="checkout btn">Proceed To Checkout</a>
   </div> </div>`;
   asspsiy.append(tablcolm);
         })

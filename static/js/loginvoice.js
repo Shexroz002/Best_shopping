@@ -27,9 +27,9 @@ speechbtn.addEventListener('click',(e)=>{
     
     switch(transcript){
      case 'Jarvis open shopping cart':
-       window.location.href = "http://127.0.0.1:8000/cart"; break;
-     case 'Jarvis open products page':window.location.href = "http://127.0.0.1:8000/products"; break;
-     case 'Jarvis open home page': window.location.href = "http://127.0.0.1:8000"; break;
+       window.location.href = "http://bestshop.pythonanywhere.com/cart"; break;
+     case 'Jarvis open products page':window.location.href = "http://bestshop.pythonanywhere.com/products"; break;
+     case 'Jarvis open home page': window.location.href = "http://bestshop.pythonanywhere.com"; break;
      default: speachtext.innerHTML = transcript; 
     }
       recognition.start();
