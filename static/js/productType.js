@@ -16,7 +16,7 @@ class ProductsType{
       elementnew.classList.add('swiper-slide');
       let alik = '';
           // <a class="cardshop" href=""><i class="fas fa-shopping-cart"></i></a>
-          if(this.logintrue === null){
+          if(this.logintrue !== null){
            alik = `<a class="cardshop" href="http://127.0.0.1:8000/users/login"}><i class="fas fa-shopping-cart"></i></a>`;
           }else{
             alik = `<i class="fas fa-shopping-cart" id=${this.id}></i>`
@@ -59,7 +59,7 @@ class ProductsType{
  .then((data) => {
    if(data.status === 200){
       const cardshop = document.querySelector('.cardshop');
-       console.log(cardshop,'asdasd')
+       
        
        data.data.forEach((item)=>{
            new ProductsType(
@@ -83,7 +83,7 @@ class ProductsType{
  .then((data) => {
    if(data.status === 200){
      const cardshop = document.querySelector('.cardshop');
-       console.log(cardshop,'asdasd')
+       
        data.data.forEach((item)=>{
            new ProductsType(
                item.id,
@@ -107,7 +107,6 @@ class ProductsType{
  .then((data) => {
    if(data.status === 200){
       const cardshop = document.querySelector('.cardshop');
-       console.log(cardshop,'asdasd')
        data.data.forEach((item)=>{
            new ProductsType(
                item.id,
@@ -132,7 +131,7 @@ class ProductsType{
  .then((data) => {
    if(data.status === 200){
       const cardshop = document.querySelector('.cardshop');
-       console.log(cardshop,'asdasd')
+       
        data.data.forEach((item)=>{
            new ProductsType(
                item.id,
@@ -156,7 +155,7 @@ console.log(document.querySelector('#fish'))
   .then((data) => {
     if(data.status === 200){
        const cardshop = document.querySelector('.cardshop');
-       console.log(cardshop,'asdasd')
+       
         data.data.forEach((item)=>{
             new ProductsType(
                 item.id,
@@ -181,7 +180,7 @@ console.log(document.querySelector('#fish'))
   .then((data) => {
     if(data.status === 200){
        const cardshop = document.querySelector('.cardshop');
-       console.log(cardshop,'asdasd')
+       
         data.data.forEach((item)=>{
             new ProductsType(
                 item.id,
@@ -205,7 +204,7 @@ console.log(document.querySelector('#fish'))
   .then((data) => {
     if(data.status === 200){
        const cardshop = document.querySelector('.cardshop');
-       console.log(cardshop,'asdasd')
+       
         data.data.forEach((item)=>{
             new ProductsType(
                 item.id,
@@ -229,7 +228,7 @@ console.log(document.querySelector('#fish'))
   .then((data) => {
     if(data.status === 200){
        const cardshop = document.querySelector('.cardshop');
-       console.log(cardshop,'asdasd')
+       
         data.data.forEach((item)=>{
             new ProductsType(
                 item.id,

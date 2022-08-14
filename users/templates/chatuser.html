@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/chatstyle.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+      <section class="users">
+        <header>
+          <div class="content">
+           
+            <img src={{user.photo.url}} alt="">
+            <div class="details">
+              <span>{{user.username}}</span>
+              <p>online</p>
+            </div>
+          </div>
+          <a href="{% url 'products:feed'%}" class="logout">Exit</a>
+        </header>
+        <div class="search">
+          <span class="text">Select an user to start chat</span>
+          <input type="text" placeholder="Enter name to search...">
+          <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="users-list">
+         
+        </div>
+      </section>
+    </div>
+  
+    <script src="{% static 'js/userchat.js' %}"></script>
+    <script src="{% static 'js/adminchat.js' %}"></script>
+  </body>
+</html>

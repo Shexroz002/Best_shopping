@@ -69,7 +69,7 @@ class NewProduct{
         elementnew.classList.add(this.element_create);
         let alik = '';
         // <a class="cardshop" href=""><i class="fas fa-shopping-cart"></i></a>
-        if(this.logintrue === null){
+        if(this.logintrue !== null){
          alik = `<a class="cardshop" href="http://127.0.0.1:8000/users/login"}><i class="fas fa-shopping-cart"></i></a>`;
         }else{
           alik = `<i class="fas fa-shopping-cart" id=${this.id}></i>`
@@ -97,16 +97,21 @@ class NewProduct{
         this.parent_by.append(elementnew)
     }
 }
-const logintrue = document.querySelector('.cardshop');
+const cardshop = document.querySelector('#logintrue');
 const productcount = document.querySelector('#productcount');
 
-if(logintrue !== null){
+if(cardshop === null){
   axios.get('http://127.0.0.1:8000/api/product/card/count')
   .then((data)=>{
-    productcount.textContent = data.data.count
+    if(data.status === 200){
+       productcount.textContent = data.data.count
+    }
+   
   })
+  console.log('bor')
  }else{
   productcount.textContent = 0
+  console.log('yoq')
  }
 axios.get(`http://127.0.0.1:8000/api/product/all`)
   .then((data) => {

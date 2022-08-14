@@ -2,7 +2,7 @@
 from django.contrib.auth import authenticate
 from rest_framework import serializers
 from rest_framework import serializers
-from .models import Client
+from .models import ChatModel, Client
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
 
@@ -105,3 +105,30 @@ class UserCreateSerializer(serializers.ModelSerializer):
             'email': {'required': False},
             'photo': {'required': False}
         }
+
+class ChatUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Client
+        fields =[ "username","photo","id",'is_superuser']
+
+class ChatModelSerializer(serializers.ModelSerializer):
+    read_chat = ChatUserSerializer()
+    write_chat =  ChatUserSerializer()
+    class Meta:
+        model = ChatModel
+        fields = "__all__"
+
+class ChatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChatModel
+        fields =[ "message","read_chat","write_chat"]
+        extra_kwargs = {
+            'message': {'required': True},
+            'read_chat': {'required': False},
+            'write_chat': {'required': False}
+        }
+
+class ClientChatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Client
+        fields = ["username","photo","id"]

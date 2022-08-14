@@ -13,7 +13,7 @@ from .serializers import (
      ShoppingHistorySerializer
 )
 from .models import CellProduct, Products,Bannner,CustomerPurchas,ShoppingHistory
-from rest_framework.permissions import IsAuthenticated,AllowAny
+from rest_framework import permissions
 from rest_framework.pagination import PageNumberPagination
 from django.core.paginator import Paginator
 import json
@@ -45,13 +45,14 @@ class CartView(View):
         return render(request, 'cart.html')
 
 class ProductAPIView(views.APIView):
+    permission_classes = (permissions.AllowAny,)
     def get(self,request):
         products = Products.objects.all()[:8]
         return response.Response(ProductSerializer(products,many=True).data,status=status.HTTP_200_OK)
 
 
 class CardShopAPIView(views.APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
     def get(self,request):
         celproduct = get_object_or_404(CustomerPurchas,customer = request.user,product_status = False)
         count_poduct = celproduct.product.count()
@@ -59,16 +60,19 @@ class CardShopAPIView(views.APIView):
 
 
 class ProductdetailAPIView(views.APIView):
+    permission_classes = (permissions.AllowAny,)
     def get(self,request):
         products = Products.objects.all().order_by('-product_price')[:4]
         return response.Response(ProductSerializer(products,many=True).data,status=status.HTTP_200_OK)
 
 class CellProductAPIView(views.APIView):
+    permission_classes = [permissions.IsAuthenticated]
     def get(self,request):
         cell_products = CellProduct.objects.all()
         return response.Response(CellProductSerializer(cell_products,many=True).data,status=status.HTTP_200_OK)
 
 class ShoppingHistoryAPIView(views.APIView):
+    permission_classes = [permissions.IsAuthenticated]
     def get(self,request):
         purchas_products = ShoppingHistory.objects.filter(customer = request.user)
         return response.Response(ShoppingHistorySerializer(purchas_products,many=True).data,status=status.HTTP_200_OK)
@@ -99,6 +103,7 @@ def pdf_report_create(request,id):
     return response.Response(ShoppingHistorySerializer(purchas_products).data,status=status.HTTP_200_OK)
 
 class CustomerPurchasAPIView(views.APIView):
+    permission_classes = [permissions.IsAuthenticated]
     def get(self,request):
         purchas_products = CustomerPurchas.objects.filter(customer = request.user,product_status = False).last()
         return response.Response(CustomerPurchasSerializer(purchas_products).data,status=status.HTTP_200_OK)
@@ -108,12 +113,14 @@ class CustomerPurchasAPIView(views.APIView):
             imas = CustomerPurchas.objects.filter(customer = request.user,product_status = False).last()
             product_id = request.data.get('product_id').split(',')
             product_count = request.data.get('product_count').split(',')
+            print(imas,imas.id)
             all_summ = 0
-            for i in range(0,len(product_id)-1):
+            for i in range(0,len(product_id)-2):
                 product_cell =CellProduct.objects.get(product__id = int(product_id[i]),status=False)
                 product_cell.product_count = int(product_count[i])
                 all_summ += int(product_count[i])*product_cell.product.product_price
                 product_cell.total_price = int(product_count[i])*product_cell.product.product_price
+    
                 product_cell.status = True
                 product_cell.save()
             imas.total_price = all_summ
@@ -121,7 +128,8 @@ class CustomerPurchasAPIView(views.APIView):
             imas.save()
             shop_history = ShoppingHistory.objects.create(customer = request.user)
             shop_history.product.add(imas)
-            return response.Response({'status':True,"id":shop_history.id},status=status.HTTP_200_OK)
+            shop_history.save()
+            return response.Response({'status':True,"id":imas.id},status=status.HTTP_200_OK)
         else:
             return response.Response({'status':False},status=status.HTTP_404_NOT_FOUND)
 
@@ -131,7 +139,7 @@ class BannnerAPIView(views.APIView):
         return response.Response(BannnerSerializer(benner,many=True).data,status=status.HTTP_200_OK)
 
 class CellProductAddAPIView(views.APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
     def get(self,request,id):
         product = get_object_or_404(Products,id = id)
         if CustomerPurchas.objects.filter(customer = request.user,product_status=False).exists():
@@ -180,7 +188,7 @@ class CellProductAddAPIView(views.APIView):
 
 
 class CustomerPurchasRemoveProductAPIView(views.APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
     def get(self,request,id):
         product_remove = get_object_or_404(CellProduct,product__id = id,customer = request.user,status=False)
         customer_purchas = get_object_or_404(CustomerPurchas,customer = request.user,product_status=False)
@@ -197,7 +205,7 @@ class ProductDetailAPIView(views.APIView):
         return response.Response(ProductSerializer(product).data,status=status.HTTP_200_OK)
 
 class ProductAllAPIView(views.APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [permissions.AllowAny]
     def get(self,request):
         category = request.query_params.get('category')
         sorts = request.query_params.get('sortby')

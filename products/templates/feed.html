@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/chat.css' %}">
   <!-- Favicon -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.js"></script>
@@ -29,6 +30,49 @@
 </head>
 
 <body>
+  <div class="chatbox-wrapper" style="z-index: 994454545;">
+    {% if user.is_authenticated %}
+		<div class="chatbox-toggle">
+			<i class='bx bx-message-dots'></i>
+		</div>
+    {% endif%}
+		<div class="chatbox-message-wrapper">
+			<div class="chatbox-message-header">
+				<div class="chatbox-message-profile">
+					<img style="width: 30px; border-radius: 100%;" src="/media/user_image/shex.jpg">
+					<div>
+						<h4 class="chatbox-message-name">Shexrozbek</h4>
+						<p class="chatbox-message-status" style="color: rgb(38, 231, 13);">online</p>
+					</div>
+				</div>
+				<div class="chatbox-message-dropdown">
+					<i class='bx bx-dots-vertical-rounded chatbox-message-dropdown-toggle'></i>
+					<ul class="chatbox-message-dropdown-menu">
+						<li>
+							<a href="#">Search</a>
+						</li>
+						<li>
+							<a href="#">Report</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="chatbox-message-content">
+				<h4 class="chatbox-message-no-message">
+          Bu yerga shikoyat va murojatlarizmi yozib qoldirishingiz mumkun.
+          Biz siz bilan albbata bog'lanamiz!</h4>
+			</div>
+			<div class="chatbox-message-bottom">
+				<form action="#" class="chatbox-message-form">
+					<textarea rows="1" placeholder="Type message..." id="Shex" class="chatbox-message-input"></textarea>
+					<button type="submit" class="chatbox-message-submit"><i class='bx bx-send' ></i></button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
   <div id="notification-area" style="z-index: 9999999;"></div>
 
   <div id="speechbtn2">
@@ -49,85 +93,41 @@
         </div>
         <li><a href="{% url 'products:feed' %}">Home</a></li>
         <li><a href="{% url 'products:allproduct' %}">Products</a></li>
-        <li>
-          <a href="" class="desktop-item">Shop</i></span></a>
-          <!-- <input type="checkbox" id="showMega" /> -->
-          <label for="showMega" class="mobile-item">Shop </label>
-          <!-- <div class="mega-box">
-            <div class="content">
-              <div class="row">
-                <img src="./image/nav.png" alt="" />
-              </div>
-              <div class="row">
-                <header>Shop Layout</header>
-                <ul class="mega-links">
-                  <li><a href="#">Shop With Background</a></li>
-                  <li><a href="#">Shop Mini Categories</a></li>
-                  <li><a href="#">Shop Only Categories</a></li>
-                  <li><a href="#">Shop Icon Categories</a></li>
-                </ul>
-              </div>
-              <div class="row">
-                <header>Filter Layout</header>
-                <ul class="mega-links">
-                  <li><a href="#">Sidebar</a></li>
-                  <li><a href="#">Filter Default</a></li>
-                  <li><a href="#">Filter Drawer</a></li>
-                  <li><a href="#">Filter Dropdown</a></li>
-                </ul>
-              </div>
-              <div class="row">
-                <header>Product Layout</header>
-                <ul class="mega-links">
-                  <li><a href="#">Layout Zoom</a></li>
-                  <li><a href="#">Layout Sticky</a></li>
-                  <li><a href="#">Layout Sticky 2</a></li>
-                  <li><a href="#">Layout Scroll</a></li>
-                </ul>
-              </div>
-            </div>
-          </div> -->
-        </li>
+        
         <li><a href="">Blog</a></li>
-        <li>
-          <a href="" class="desktop-item">Vendors <span><i class="fas fa-chevron-down"></i></span></a>
-          <input type="checkbox" id="showdrop1" />
-          <label for="showdrop1" class="mobile-item">Vendors <span><i class="fas fa-chevron-down"></i></span></label>
-          <ul class="drop-menu1">
-            <li><a href="">Vendor Store listings</a></li>
-            <li><a href="">Store Details</a></li>
-          </ul>
-        </li>
+       
 
         <li>
           <a class="desktop-item">{% if user.is_authenticated %}
-            <span><img style="width: 30px;" src={{user.photo.url}} alt="" /></span>
-            {% else%}
-            <span id="logintrue"><img style="width: 30px;" src="{% static 'image/search.png' %}" alt="" /></span>
-            {% endif%} <span><i class="fas fa-chevron-down"></i></span></a>
-          <input type="checkbox" id="showdrop2" />
-          <label for="showdrop2" class="mobile-item">{% if user.is_authenticated %}
-            <span><img style="width: 30px;" src="{% static 'image/user.png' %}" alt="" /></span>
-            {% else%}
-            <span id="logintrue"><img style="width: 30px;" src="{% static 'image/search.svg' %}" alt="" /></span>
-            {% endif%} <span><i class="fas fa-chevron-down"></i></span></label>
-          <ul class="drop-menu2">
-            <li><a href="{% url 'users:logout' %}">Profile</a></li>
-            <li><a href="">Shopping History</a></li>
-            <li><a href="">Update Profile</a></li>
-            <li><a href="">Logout</a></li>
+            <span>User Info</span>
+              <ul class="drop-menu2">
+            <li><a href="">Profile</a></li>
+            <li><a href="{% url 'products:history' %}">Shopping History</a></li>
+            <li><a href="{% url 'users:update' %}">Update Profile</a></li>
+            <li><a href="{% url 'users:logout' %}">Logout</a></li>
           </ul>
+            {% else%}
+            <span id="logintrue">User Info</span>
+            <ul class="drop-menu2">
+              <li><a href="{% url 'users:loginuser' %}">Login and Register</a></li>
+            </ul>
+            {% endif%} <span><i class="fas fa-chevron-down"></i></span></a>
+      
+        
         </li>
         <!-- icons -->
         <li class="icons">
           <a href="{% url 'products:cart' %}">
             <span>
-            <img  src="{% static 'image/shoppingBag.svg' %}" alt="" />
+            <img src="{% static 'image/shoppingBag.svg' %}" alt="" />
             <small class="count d-flex" id="productcount">0</small>
           </span>
           </a>
-          <span><a href="{% url 'products:allproduct' %}"><img src="{% static 'image/search.svg' %}" alt="" /></a></span>
-          
+          {% if user.is_authenticated %}
+          <span><img style="width: 30px; border-radius: 50%;" src="{{ user.photo.url }}" alt="" /></span>
+          {% else %}
+          <span><img style="width: 30px;" src="{% static 'image/user.png' %}" alt="" /></span>
+          {% endif %}
         </li>
       </ul>
       <label for="" class="btn open-btn"><i class="fas fa-bars"></i></label>
@@ -146,7 +146,7 @@
                 start from 
                 <span>$9</span>
               </h1>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti ad natus facilis magni corporis alias.</p>
+              <p>Are you looking fora quality products? Then Nature shop is for you. Do'nt get lost in selection!</p>
 
               <a href="#">Shop Now</a>
             </div>
@@ -160,8 +160,8 @@
                 <span>20% off</span>
                 at Juice
               </h1>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti ad natus facilis magni corporis alias.</p>
-              <a href="#">Shop Now</a>
+              <p>Are you looking fora quality products? Then Nature shop is for you. Do'nt get lost in selection!</p>
+              <a href="{% url 'products:allproduct' %}">Shop Now</a>
             </div>
           </div>
           
@@ -173,8 +173,8 @@
                 <span>20% off</span>
                 at Juice
               </h1>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti ad natus facilis magni corporis alias.</p>
-              <a href="#">Shop Now</a>
+              <p>Are you looking fora quality products? Then Nature shop is for you. Do'nt get lost in selection!</p>
+              <a href="{% url 'products:allproduct' %}">Shop Now</a>
             </div>
           </div>
         </div>
@@ -255,7 +255,7 @@
   <section class="section featured">
     <div class="title">
       <h2>Fruit Products</h2>
-      <span>Select from the premium product brands and save plenty money</span>
+      <span>Select from the premium product Fruit and save plenty money</span>
     </div>
 
     <div class="row container">
@@ -283,7 +283,7 @@
 <section class="section featured">
   <div class="title">
     <h2>Vagtable Products</h2>
-    <span>Select from the premium product brands and save plenty money</span>
+    <span>Select from the premium product Vagtable and save plenty money</span>
   </div>
 
   <div class="row container">
@@ -309,7 +309,7 @@
 <section class="section featured">
   <div class="title">
     <h2>Pizza Products</h2>
-    <span>Select from the premium product brands and save plenty money</span>
+    <span>Select from the premium product Pizza and save plenty money</span>
   </div>
 
   <div class="row container">
@@ -336,7 +336,7 @@
 <section class="section featured">
   <div class="title">
     <h2>Pizza Products</h2>
-    <span>Select from the premium product brands and save plenty money</span>
+    <span>Select from the premium product Food and save plenty money</span>
   </div>
 
   <div class="row container">
@@ -362,7 +362,7 @@
 <section class="section featured">
   <div class="title">
     <h2>Fish Products</h2>
-    <span>Select from the premium product brands and save plenty money</span>
+    <span>Select from the premium product Fish and save plenty money</span>
   </div>
 
   <div class="row container">
@@ -388,7 +388,7 @@
 <section class="section featured">
   <div class="title">
     <h2>Pilav Products</h2>
-    <span>Select from the premium product brands and save plenty money</span>
+    <span>Select from the premium product Pilav and save plenty money</span>
   </div>
 
   <div class="row container">
@@ -413,7 +413,7 @@
 <section class="section featured">
   <div class="title">
     <h2>Ice Cream Products</h2>
-    <span>Select from the premium product brands and save plenty money</span>
+    <span>Select from the premium product Ice Cream and save plenty money</span>
   </div>
 
   <div class="row container">
@@ -439,7 +439,7 @@
 <section class="section featured">
   <div class="title">
     <h2>Drink Products</h2>
-    <span>Select from the premium product brands and save plenty money</span>
+    <span>Select from the premium product Drink and save plenty money</span>
   </div>
 
   <div class="row container">
@@ -564,19 +564,19 @@
             <span>
               <i class="fas fa-map-marker-alt"></i>
             </span>
-            42 Dream House, Dreammy street, 7131 Dreamville, USA
+           UZBEKISTAN SAMARKAND REGION
           </div>
           <div>
             <span>
               <i class="far fa-envelope"></i>
             </span>
-            company@gmail.com
+           shexroz002y@gmail.com
           </div>
           <div>
             <span>
               <i class="fas fa-phone"></i>
             </span>
-            456-456-4512
+            +998930010101
           </div>
           <div class="payment-methods">
             <img src="{% static 'image/payment.png' %}" alt="">
@@ -594,6 +594,7 @@
   <script src="{% static 'js/slider.js' %}"></script>
   <script src="{% static 'js/product.js' %}"></script>
   <script src="{% static 'js/productType.js' %}"></script>
+  <script src="{% static 'js/chat.js' %}"></script>
 
 </body>
 

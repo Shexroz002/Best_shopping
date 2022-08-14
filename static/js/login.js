@@ -32,18 +32,10 @@ sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
 
-// passwordr.addEventListener('input',()=>{
-//   const passworder = document.querySelector('#passworder');
-//   let leng = passwordr.value;
-// if(leng.length <8){
-//   passworder.innerHTML = 'Password 8 ta belgidan kop bolishi kerak';
-// }else{
-//   passworder.innerHTML = '';
-// }
 
-// });
 
-registerbtn.addEventListener('click',()=>{
+registerbtn.addEventListener('click',(e)=>{
+  e.preventDefault()
 const csrftoken = getCookie('csrftoken');
 const usernamer = document.querySelector('#usernamer');
 const passwordr = document.querySelector('#passwordr');
@@ -106,7 +98,9 @@ axios.post('http://127.0.0.1:8000/users/api/register',JSON.stringify(data),{head
 
 
 
-loginbtn.addEventListener('click',()=>{
+loginbtn.addEventListener('click',(e)=>{
+  e.preventDefault()
+ console.log('sad')
   const csrftoken = getCookie('csrftoken');
   const usernamelogin = document.querySelector('#usernamelogin');
   const passwordlogin = document.querySelector('#passwordlogin');
@@ -119,7 +113,7 @@ loginbtn.addEventListener('click',()=>{
     "password":passwordlogin.value
   };
  
-  
+
   
   nameerlogin.innerHTML = '';
   passworderlogin.innerHTML = '';
@@ -131,6 +125,8 @@ loginbtn.addEventListener('click',()=>{
       .then((data) => {
         console.log(data.data.login)
         if(data.status === 202){
+          localStorage.setItem("is_superuser",data.data.is_superuser );
+          localStorage.setItem("username",data.data.username );
           uttrens = new SpeechSynthesisUtterance("You have successfully logined");
           speechSynthesis.speak(uttrens)
           nameerlogin2.innerHTML = '';

@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/chatstyle.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+</head>
+<body>
+    <div class="wrapper">
+      <section class="chat-area">
+        <header>
+          <a href="{% url 'users:chatlola'%}" class="back-icon"><i class="fas fa-arrow-left"></i></a>
+          <img src="{{user.photo.url}}" alt="">
+          <div class="details">
+            <span>{{user.username}}</span>
+            <p style="color: rgb(50, 212, 29);">Online</p>
+          </div>
+        </header>
+        <div class="chat-box" id={{user.id}}>
+          {% for message in messages %}
+          {% if message.write_chat.is_superuser %}
+          <div class="chat outgoing">
+            <div class="details">
+                <p>{{message.message}}<br><span style="font-size: 0.5rem;color: aqua;">{{ message.data | date:"H:i" }}</span></p>
+            </div>
+            </div>
+            {% else %}
+            <div class="chat incoming">
+              <img src="{{message.write_chat.photo.url}}" alt="">
+              <div class="details">
+                  <p>{{message.message}}<br><span style="font-size: 0.5rem;color:blue;">{{ message.data | date:"H:i" }}</span></p>
+                  
+              </div>
+              </div>
+              {% endif%}
+              {% endfor%}
+        </div>
+        <form action="#" class="typing-area">
+          <input type="text" name="message" class="input-field" placeholder="Type a message here..." autocomplete="off">
+          <button><i class="fab fa-telegram-plane"></i></button>
+        </form>
+      </section>
+    </div>
+  
+    <script src="{% static 'js/chatadmin.js' %}"></script>
+  
+  </body>
+</html>

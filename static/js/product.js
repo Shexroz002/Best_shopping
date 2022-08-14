@@ -89,6 +89,7 @@ speechbtn.addEventListener('click',(e)=>{
       window.location.href = "http://127.0.0.1:8000/cart"; break;
     case 'Jarvis open products page':window.location.href = "http://127.0.0.1:8000/products"; break;
     case 'Jarvis open home page': window.location.href = "http://127.0.0.1:8000"; break;
+    case 'Jarvis open login page': window.location.href = "http://127.0.0.1:8000/users/login"; break;
     default: speachtext.innerHTML = transcript;  
    }      
 //  if(transcript ==='Jarvis open shopping cart'){
@@ -176,16 +177,21 @@ class NewProduct{
 //     }
     
 //   })
-const logintrue = document.querySelector('.cardshop');
+const cardshop = document.querySelector('#logintrue');
 const productcount = document.querySelector('#productcount');
 
-if(logintrue !== null){
+if(cardshop === null){
   axios.get('http://127.0.0.1:8000/api/product/card/count')
   .then((data)=>{
-    productcount.textContent = data.data.count
+    if(data.status === 200){
+       productcount.textContent = data.data.count
+    }
+   
   })
+  console.log('bor')
  }else{
   productcount.textContent = 0
+  console.log('yoq')
  }
 
 
