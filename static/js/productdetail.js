@@ -148,7 +148,7 @@ axios.get('http://bestshop.pythonanywhere.com/api/product/detail')
         console.log(e.target.id,)
       if ( e.target.id !== ''){
         number = + e.target.id
-      axios.get(`http://bestshop.pythonanywhere.com/api/cell/product/add/${number}`)
+      axios.get(`http://bestshopnew.pythonanywhere.com/api/cell/product/add/${number}`)
       .then((data)=>{
         const productcount2 = document.getElementsByTagName('small');
         let countproduct = +productcount2[0].innerHTML
