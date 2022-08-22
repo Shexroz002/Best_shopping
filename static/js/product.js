@@ -181,7 +181,7 @@ const cardshop = document.querySelector('#logintrue');
 const productcount = document.querySelector('#productcount');
 
 if(cardshop === null){
-  axios.get('http://bestshop.pythonanywhere.com/api/product/card/count')
+  axios.get('http://bestshop1.pythonanywhere.com/api/product/card/count')
   .then((data)=>{
     if(data.status === 200){
        productcount.textContent = data.data.count

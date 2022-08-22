@@ -2,12 +2,12 @@
 const conversation = document.querySelector('.users-list')
 console.log(conversation)
 
-axios.get(`http://bestshop.pythonanywhere.com/users/api/chat/user`)
+axios.get(`http://bestshop1.pythonanywhere.com/users/api/chat/user`)
 .then(data=>{
     data.data.forEach(user => {
         const element = document.createElement('div');
         element.innerHTML=`
-        <a href="http://bestshop.pythonanywhere.com/users/chat/${user.id}">
+        <a href="http://bestshop1.pythonanywhere.com/users/chat/${user.id}">
         <div class="content">
         <img src=${user.photo} alt="Noimage">
         <div class="details">

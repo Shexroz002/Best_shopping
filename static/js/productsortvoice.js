@@ -29,13 +29,13 @@ speechbtn.addEventListener('click',(e)=>{
     
     switch(transcript){
      case 'Jarvis open shopping cart':
-       window.location.href = "http://bestshop.pythonanywhere.com/cart"; break;
-     case 'Jarvis open products page':window.location.href = "http://bestshop.pythonanywhere.com/products"; break;
+       window.location.href = "http://bestshop1.pythonanywhere.com/cart"; break;
+     case 'Jarvis open products page':window.location.href = "http://bestshop1.pythonanywhere.com/products"; break;
      case 'Jarvis open home page': window.location.href = "http://bestshop.pythonanywhere.com"; break;
      default: speachtext.innerHTML = transcript; 
      let producttypr = capitalizeFirstLetter(transcript.split(' ')[2])
      if (transcript.split(' ')[0] === "Jarvis" && transcript.split(' ')[1] === "show"  ){
-        axios.get(`http://bestshop.pythonanywhere.com/api/product/all?category=${producttypr}`)
+        axios.get(`http://bestshop1.pythonanywhere.com/api/product/all?category=${producttypr}`)
         .then((data) => {
           if(data.status === 200){
             productall = document.querySelectorAll('.product');
@@ -92,7 +92,7 @@ speechbtn.addEventListener('click',(e)=>{
   
 // function ShowCatagory(productType){
     
-//     axios.get(`http://bestshop.pythonanywhere.com/api/product/all?category=${productType}`)
+//     axios.get(`http://bestshop1.pythonanywhere.com/api/product/all?category=${productType}`)
 //     .then((data) => {
 //       if(data.status === 200){
 //         productall = document.querySelectorAll('.product');
@@ -130,7 +130,7 @@ speechbtn.addEventListener('click',(e)=>{
 //         item.addEventListener('click',(e)=>{
 //           if(e.target.name !==''){
 //             num = + e.target.name
-//             window.location.href = `http://bestshop.pythonanywhere.com/product/detail/${num}`;
+//             window.location.href = `http://bestshop1.pythonanywhere.com/product/detail/${num}`;
 //           }
 //         })
 //       })
@@ -138,7 +138,7 @@ speechbtn.addEventListener('click',(e)=>{
 //         item.addEventListener('click',(e)=>{
 //           if ( e.target.id !== ''){
 //             number = + e.target.id
-//           axios.get(`http://bestshop.pythonanywhere.com/api/cell/product/add/${number}`)
+//           axios.get(`http://bestshop1.pythonanywhere.com/api/cell/product/add/${number}`)
 //           .then((data)=>{
 //             const productcount2 = document.getElementsByTagName('small');
 //             let countproduct = +productcount2[0].innerHTML
