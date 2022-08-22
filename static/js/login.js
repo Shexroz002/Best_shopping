@@ -118,7 +118,7 @@ loginbtn.addEventListener('click',(e)=>{
   nameerlogin.innerHTML = '';
   passworderlogin.innerHTML = '';
   
-  axios.post('http://bestshop1.pythonanywhere.com/users/api/login',JSON.stringify(data),{headers:{
+  axios.post('http://bestshopnew.pythonanywhere.com/users/api/login',JSON.stringify(data),{headers:{
     'Content-Type': 'application/json',
     'X-CSRFToken': csrftoken,}
   })

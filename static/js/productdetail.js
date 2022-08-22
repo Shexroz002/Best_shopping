@@ -136,7 +136,7 @@ axios.get('http://bestshop.pythonanywhere.com/api/product/detail')
     item.addEventListener('click',(e)=>{
       if(e.target.name !=='' && e.target.name !==NaN){
         num = + e.target.name
-        window.location.href = `http://bestshop1.pythonanywhere.com/product/detail/${num}`;
+        window.location.href = `http://bestshopnew.pythonanywhere.com/product/detail/${num}`;
       }
     })
   })
