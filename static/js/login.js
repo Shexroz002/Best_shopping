@@ -55,7 +55,7 @@ let headers= {
 nameer.innerHTML = '';
 passworder.innerHTML = '';
 
-axios.post('http://bestshop.pythonanywhere.com/users/api/register',JSON.stringify(data),{headers:{
+axios.post('http://bestshopnew.pythonanywhere.com/users/api/register',JSON.stringify(data),{headers:{
   'Content-Type': 'application/json',
   'X-CSRFToken': csrftoken,}
 })

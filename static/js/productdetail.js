@@ -98,14 +98,14 @@ const logintrue = document.querySelectorAll('#logintrue');
 const productcount = document.querySelector('#productcount');
 
 if(logintrue !== null){
-  axios.get('http://bestshop.pythonanywhere.com/api/product/card/count')
+  axios.get('http://bestshopnew.pythonanywhere.com/api/product/card/count')
   .then((data)=>{
     productcount.textContent = data.data.count
   })
  }else{
   productcount.textContent = 0
  }
-axios.get('http://bestshop.pythonanywhere.com/api/product/detail')
+axios.get('http://bestshopnew.pythonanywhere.com/api/product/detail')
   .then((data) => {
     if(data.status === 200){
       const cardshop = document.querySelector('.cardshop');

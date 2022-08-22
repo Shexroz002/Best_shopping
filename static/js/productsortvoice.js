@@ -31,7 +31,7 @@ speechbtn.addEventListener('click',(e)=>{
      case 'Jarvis open shopping cart':
        window.location.href = "http://bestshopnew.pythonanywhere.com/cart"; break;
      case 'Jarvis open products page':window.location.href = "http://bestshopnew.pythonanywhere.com/products"; break;
-     case 'Jarvis open home page': window.location.href = "http://bestshop.pythonanywhere.com"; break;
+     case 'Jarvis open home page': window.location.href = "http://bestshopnew.pythonanywhere.com"; break;
      default: speachtext.innerHTML = transcript; 
      let producttypr = capitalizeFirstLetter(transcript.split(' ')[2])
      if (transcript.split(' ')[0] === "Jarvis" && transcript.split(' ')[1] === "show"  ){
