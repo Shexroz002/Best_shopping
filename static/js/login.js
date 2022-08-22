@@ -137,7 +137,7 @@ loginbtn.addEventListener('click',(e)=>{
           
           setTimeout(()=>{
             nameerlogin.innerHTML = ''
-            window.location.href = "http://bestshop.pythonanywhere.com";
+            window.location.href = "http://bestshopnew.pythonanywhere.com";
           },3000)
         }
       })
