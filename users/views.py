@@ -1,4 +1,4 @@
-from asyncore import read
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import response
 from django.shortcuts import render,redirect
@@ -12,7 +12,6 @@ from .models import Client,ChatModel
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 
-import users
 
 class LoginView(views.APIView):
     # This view should be accessible also for unauthenticated users.

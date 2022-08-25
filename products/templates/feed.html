@@ -111,7 +111,12 @@
             <ul class="drop-menu2">
               <li><a href="{% url 'users:loginuser' %}">Login and Register</a></li>
             </ul>
-            {% endif%} <span><i class="fas fa-chevron-down"></i></span></a>
+            {% endif%} <span><i class="fas fa-chevron-down"></i> <ul class="drop-menu2">
+              <li><a href="">Profile</a></li>
+              <li><a href="{% url 'products:history' %}">Shopping History</a></li>
+              <li><a href="{% url 'users:update' %}">Update Profile</a></li>
+              <li><a href="{% url 'users:logout' %}">Logout</a></li>
+            </ul></span></a>
       
         
         </li>
