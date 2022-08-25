@@ -25,7 +25,7 @@ function getCookie(name) {
         return cookieValue;
       }
 console.log(avatar)
-axios.get(`http://bestshopnew.pythonanywhere.com/users/api/update/profile/${id}`)
+axios.get(`https://bestshopnew.pythonanywhere.com/users/api/update/profile/${id}`)
 .then((data)=>{
     if(data.status === 200){
         username.value = data.data.username;
@@ -54,7 +54,7 @@ btn.addEventListener('click',()=>{
     profiledata.append('username',usernames.value);
     profiledata.append('email',emails.value);
     const csrftoken = getCookie('csrftoken');
-    axios.put(`http://bestshopnew.pythonanywhere.com/users/api/update/profile/${id}`,profiledata,{headers:{
+    axios.put(`https://bestshopnew.pythonanywhere.com/users/api/update/profile/${id}`,profiledata,{headers:{
     'Content-Type': 'application/json',
     'X-CSRFToken': csrftoken,}
   })
@@ -69,7 +69,7 @@ btn.addEventListener('click',()=>{
         title.innerHTML = "Your details have been successfully updated";
 
         setTimeout(()=>{
-            window.location.href = "http://bestshopnew.pythonanywhere.com";
+            window.location.href = "https://bestshopnew.pythonanywhere.com/";
           },3000)
     }
   })

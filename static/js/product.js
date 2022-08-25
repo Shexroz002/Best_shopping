@@ -86,15 +86,15 @@ speechbtn.addEventListener('click',(e)=>{
    },5000)
    switch(transcript){
     case 'Jarvis open shopping cart':
-      window.location.href = "http://bestshopnew.pythonanywhere.com/cart"; break;
-    case 'Jarvis open products page':window.location.href = "http://bestshopnew.pythonanywhere.com/products"; break;
-    case 'Jarvis open home page': window.location.href = "http://bestshopnew.pythonanywhere.com/"; break;
-    case 'Jarvis open login page': window.location.href = "http://bestshopnew.pythonanywhere.com/users/login"; break;
+      window.location.href = "https://bestshopnew.pythonanywhere.com/cart"; break;
+    case 'Jarvis open products page':window.location.href = "https://bestshopnew.pythonanywhere.com/products"; break;
+    case 'Jarvis open home page': window.location.href = "https://bestshopnew.pythonanywhere.com/"; break;
+    case 'Jarvis open login page': window.location.href = "https://bestshopnew.pythonanywhere.com/users/login"; break;
     default: speachtext.innerHTML = transcript;  
    }      
 //  if(transcript ==='Jarvis open shopping cart'){
 //    console.log('1')
-//    window.location.href = "http://bestshopnew.pythonanywhere.com/cart";
+//    window.location.href = "https://bestshopnew.pythonanywhere.com/cart";
 //  }else{
 //    console.log('ne')
 //  }
@@ -127,7 +127,7 @@ class NewProduct{
         let alik = '';
         // <a class="cardshop" href=""><i class="fas fa-shopping-cart"></i></a>
         if(this.logintrue === null){
-         alik = `<a class="cardshop" href="http://bestshopnew.pythonanywhere.com/users/login"}><i class="fas fa-shopping-cart"></i></a>`;
+         alik = `<a class="cardshop" href="https://bestshopnew.pythonanywhere.com/users/login"}><i class="fas fa-shopping-cart"></i></a>`;
         }else{
           alik = `<i class="fas fa-shopping-cart" id=${this.id}></i>`
         }
@@ -144,7 +144,7 @@ class NewProduct{
         </ul>
       </div>
       <div class="bottom">
-        <a href="http://bestshopnew.pythonanywhere.com/product/detail/${this.id}" class="details" name="${this.id}">${this.product_name}</a>
+        <a href="https://bestshopnew.pythonanywhere.com/product/detail/${this.id}" class="details" name="${this.id}">${this.product_name}</a>
         <div class="price">
           <span>$${this.product_skidka_price}</span>
           <span class="cancel">$${this.product_price}</span>
@@ -155,7 +155,7 @@ class NewProduct{
     }
 }
 
-// axios.get('http://bestshopnew.pythonanywhere.com/api/products')
+// axios.get('https://bestshopnew.pythonanywhere.com/api/products')
 //   .then((data) => {
 //     if(data.status === 200){
 //       const cardshop = document.querySelectorAll('.cardshop');
@@ -181,7 +181,7 @@ const cardshop = document.querySelector('#logintrue');
 const productcount = document.querySelector('#productcount');
 
 if(cardshop === null){
-  axios.get('http://bestshopnew.pythonanywhere.com/api/product/card/count')
+  axios.get('https://bestshopnew.pythonanywhere.com/api/product/card/count')
   .then((data)=>{
     if(data.status === 200){
        productcount.textContent = data.data.count
@@ -209,7 +209,7 @@ setTimeout(()=>{
     item.addEventListener('click',(e)=>{
       if(e.target.name !==''){
         num = + e.target.name
-        window.location.href = `http://bestshopnew.pythonanywhere.com/product/detail/${num}`;
+        window.location.href = `https://bestshopnew.pythonanywhere.com/product/detail/${num}`;
       }
     })
   })
@@ -218,7 +218,7 @@ setTimeout(()=>{
   item.addEventListener('click',(e)=>{
     if ( e.target.id !== ''){
       number = + e.target.id
-    axios.get(`http://bestshopnew.pythonanywhere.com/api/cell/product/add/${number}`)
+    axios.get(`https://bestshopnew.pythonanywhere.com/api/cell/product/add/${number}`)
     .then((data)=>{
       const productcount2 = document.getElementsByTagName('small');
       var countproduct = +productcount2[0].innerHTML

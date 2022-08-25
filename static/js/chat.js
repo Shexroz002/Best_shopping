@@ -44,7 +44,7 @@ chatboxToggle.addEventListener('click', function () {
 	if(is_superuser === 'false'){
 		chatboxMessage.classList.toggle('show')
 	}else{
-		window.location.href="http://bestshopnew.pythonanywhere.com/users/chat"
+		window.location.href="https://bestshopnew.pythonanywhere.com/users/chat"
 	}
 	
 })
@@ -86,7 +86,7 @@ chatboxForm.addEventListener('submit', function (e) {
 		'X-CSRFToken': csrftoken,
 	  };
 	if(isValid(textarea.value)) {
-		axios.post('http://bestshopnew.pythonanywhere.com/users/api/chat/6',JSON.stringify(data),{headers:{
+		axios.post('https://bestshopnew.pythonanywhere.com/users/api/chat/6',JSON.stringify(data),{headers:{
 		'Content-Type': 'application/json',
 		'X-CSRFToken': csrftoken,}
 		})
@@ -100,7 +100,7 @@ chatboxForm.addEventListener('submit', function (e) {
 	}
 })
 
-axios.get('http://bestshopnew.pythonanywhere.com/users/api/chat/6')
+axios.get('https://bestshopnew.pythonanywhere.com/users/api/chat/6')
 .then(data=>{
   if(data.status === 200){
 	  console.log(data.data)

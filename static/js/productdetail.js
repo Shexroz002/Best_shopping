@@ -98,14 +98,14 @@ const logintrue = document.querySelectorAll('#logintrue');
 const productcount = document.querySelector('#productcount');
 
 if(logintrue !== null){
-  axios.get('http://bestshopnew.pythonanywhere.com/api/product/card/count')
+  axios.get('https://bestshopnew.pythonanywhere.com/api/product/card/count')
   .then((data)=>{
     productcount.textContent = data.data.count
   })
  }else{
   productcount.textContent = 0
  }
-axios.get('http://bestshopnew.pythonanywhere.com/api/product/detail')
+axios.get('https://bestshopnew.pythonanywhere.com/api/product/detail')
   .then((data) => {
     if(data.status === 200){
       const cardshop = document.querySelector('.cardshop');
@@ -136,7 +136,7 @@ axios.get('http://bestshopnew.pythonanywhere.com/api/product/detail')
     item.addEventListener('click',(e)=>{
       if(e.target.name !=='' && e.target.name !==NaN){
         num = + e.target.name
-        window.location.href = `http://bestshopnew.pythonanywhere.com/product/detail/${num}`;
+        window.location.href = `https://bestshopnew.pythonanywhere.com/product/detail/${num}`;
       }
     })
   })
@@ -148,7 +148,7 @@ axios.get('http://bestshopnew.pythonanywhere.com/api/product/detail')
         console.log(e.target.id,)
       if ( e.target.id !== ''){
         number = + e.target.id
-      axios.get(`http://bestshopnew.pythonanywhere.com/api/cell/product/add/${number}`)
+      axios.get(`https://bestshopnew.pythonanywhere.com/api/cell/product/add/${number}`)
       .then((data)=>{
         const productcount2 = document.getElementsByTagName('small');
         let countproduct = +productcount2[0].innerHTML
